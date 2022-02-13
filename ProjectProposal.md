@@ -15,7 +15,7 @@
 | 1 | A seller may update / edit items up for sale | A seller may mark an order as shipped | A seller may offer tracking on a shipped order |
 | 2 | A seller may add items for sale | A seller may view requests from customers | A seller may respond to customer requests |
 | 3 | A seller may remove items from the website | A seller may add pictures to showcase products (outside of catalogue) | A customer may search for items in the catalogue |
-| 4 | A seller may view the purchases | A user may have the app choose a random product for them | - |
+| 4 | A seller may view the purchases | A user may have the app choose a random product for them | A user may be able to change their account info |
 | 5 | A user may contact the seller | - | - |
 | 6 | A user may view details of each products | - | - |
 | 7 | A user may place add items to their cart | - | - |
