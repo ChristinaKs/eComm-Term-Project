@@ -20,5 +20,5 @@
 | 6 | A user may view details of each products | A user may be able to sign up | A user may be able to check their order history |
 | 7 | A user may place add items to their cart | A user may be able to check their order status | A user may cancel their order |
 | 8 | A user may remove items from their cart | A user can return their product(refund) | User may be able to add another credit card |
-| 9 | A user may modify quantities of an item in their cart | A user may be able to change their password | - |
-| 10 | A user may place an order/checkout | - | - |
+| 9 | A user may modify quantities of an item in their cart | A user may be able to change their password | User may be able to search for product |
+| 10 | A user may place an order/checkout | User may be able to view their cart | - |
