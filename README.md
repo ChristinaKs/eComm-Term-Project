@@ -3,10 +3,10 @@
 Final term project for the ecommerce Course in the 4th semester of the Computer Science program
 
 ## Contents
-### [Project Instructions](#Term_Project_Instructions.pdf)
+### [Project Instructions](Term_Project_Instructions.pdf)
 This PDF file contains all of the instructions for the project. <br>
 
-### [Project Proposal](#ProjectProposal.md)
+### [Project Proposal](ProjectProposal.md)
 This is the first deliverable for this term project. It contains a brief explanation of the scope of the project. <br>
 
 
