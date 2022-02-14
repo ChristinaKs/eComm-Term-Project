@@ -3,7 +3,7 @@
 Final term project for the ecommerce Course in the 4th semester of the Computer Science program
 
 ## Contents
-### [Project Instructions](Term Project Instructions.pdf)
+### [Project Instructions](Term_Project_Instructions.pdf)
 This PDF file contains all of the instructions for the project. <br>
 
 ### [Project Proposal](ProjectProposal.md)
