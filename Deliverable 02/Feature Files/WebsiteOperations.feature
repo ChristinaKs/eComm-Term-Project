@@ -12,11 +12,11 @@ Feature: WebsiteOperations
     Then the website should display the new picture
 
   Scenario: Updating my "about us" page
-  Given I am logged in as an admin
-  And I want to change the information on my "about us" page
-  When I click on that page
-  And it is displayed for me 
-  When I click on the "edit" button
-  Then I may add changes to the information on this page
-  When I click "finished"
-  Then my changes should be saved and the new information should be displayed on the website
+    Given I am logged in as an admin
+    And I want to change the information on my "about us" page
+    When I click on that page
+    And it is displayed for me 
+    When I click on the "edit" button
+    Then I may add changes to the information on this page
+    When I click "finished"
+    Then my changes should be saved and the new information should be displayed on the website
