@@ -1,7 +1,7 @@
 Feature: PurchaseOperations
-  In order to ...
-  As a ...
-  I need to ...
+  In order to Edit order statuses
+  As an Admin
+  I need to be able to view all my orders and correctly mark them as shipped or shipped with tracking
 
   Scenario: I want to view all orders
     Given I am logged in as an admin
