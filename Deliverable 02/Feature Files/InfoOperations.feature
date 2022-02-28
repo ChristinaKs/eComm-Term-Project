@@ -6,13 +6,13 @@ Feature: AddShippingAddressOperations
   Scenario: adding a shipping address while being logged in
     Given I am on Home page
     And logged into my customer account
-    Then I need to move to the "Profile" page using the Menu bar
-    And I should see my profile
-    Then I click "edit" button 
-    And see the editing page popping up
-    Then I click "add shipping address" 
-    And I see adding address page poppping up
-    Then I fill out the fields with the information required
+    When I move to the "Profile" page using the Menu bar
+    Then I should see my profile
+    When I click "edit" button 
+    Then I should see the editing page popping up
+    When I click "add shipping address" 
+    Then I see adding address page poppping up
+    When I fill out the fields with the information required
     And click "add address"
     Then I should see the new address displayed in the profile info
   
@@ -24,12 +24,12 @@ Feature: AddCardOperations
   Scenario: adding a credit card while being logged in
     Given I am on Home page
     And logged into my customer account
-    Then I need to move to the "Profile" page using the Menu bar
-    And I should see my profile
-    Then I click "edit" button 
-    And see the editing page popping up
-    Then I click "add a card" 
-    And I see adding card page poppping up
-    Then I fill out the fields with the information required
+    When I move to the "Profile" page using the Menu bar
+    Then I should see my profile
+    When I click "edit" button 
+    Then I should see the editing page popping up
+    When I click "add a card" 
+    Then I should see adding card page poppping up
+    When I fill out the fields with the information required
     And click "add a card"
     Then I should see the new card displayed in the profile info
