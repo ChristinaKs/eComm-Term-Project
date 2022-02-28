@@ -7,8 +7,9 @@ Feature: SearchProductsInCatalogueOperation
     Given I am on the HomePage
     When I click on the "catalogue" icon on the menu
     Then I see a search bar 
-    And I should click on it
-    Then I can search for any item in the catalogue
+    When I type an item's name in the search bar
+    And click "search"
+    Then all instances of the item should show up
   
 Feature: ViewProductDetailsOperation
   In order to search items in the catalogue
@@ -16,10 +17,9 @@ Feature: ViewProductDetailsOperation
   I need to open the catalogue and complete some operations
 
   Scenario: View product details in the catalogue
-    Given I am on a HomePage
-    When I click on the "catalogue" icon on the menu
-    Then I can click any item that interests me 
-    And I can see the details about that specific item
+    Given I am in the catalogue
+    When I click any item that interests me 
+    Then a page where the details of that item should be displayed
   
 Feature: RateProductOperation
   In order to rate items in the catalogue
@@ -27,23 +27,11 @@ Feature: RateProductOperation
   I need to open the catalogue and complete some operations
 
   Scenario: Rate a product while being logged in
-    Given I am on a HomePage
-    Then I click the "catalogue" icon on the Menu
-    And I can click on any item in the catalogue
-    Then I should see the window with all the details about the product
-    And I can rate the item using the stars icon on top (from 1 to 5)
+    Given I am online my order history 
+    When I click on any item I have purchased
+    Then I should see the window with all the details about the product as well as stars to rate
+    When I rate the item using the stars icon (from 1 to 5)
+    And click "review"
+    Then my review should display on the website
     
-  Scenario: Rate a product and not having an account
-    Given I am on a HomePage
-    Then I click the "catalogue" icon on the Menu
-    And I can click on any item in the catalogue
-    Then I should see the window with all the details about the product
-    And I try to rate the item using the stars icon on top (from 1 to 5)
-    Then I should see the window popping up that says that I am not logged in
-    And I click "login" button
-    Then I should see the login page
-    And I click "sign up"
-    Then I should see the signing up page 
-    And I enter the information required in the filds
-    Then I click "register" button
-    And I am redirected to the rating the item page where I can finish the process
+  
