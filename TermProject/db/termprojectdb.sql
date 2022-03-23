@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2022 at 06:54 PM
+-- Generation Time: Mar 23, 2022 at 10:46 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `AdminEmail` varchar(255) NOT NULL,
+  `AdminEmail` varchar(150) NOT NULL,
   `AdminFirstName` varchar(25) NOT NULL,
   `AdminLastName` varchar(30) NOT NULL,
-  `AdminPassword` varchar(255) NOT NULL
+  `AdminPasswordHash` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -41,13 +41,10 @@ CREATE TABLE `admin` (
 --
 
 CREATE TABLE `clients` (
-  `ClientId` int(5) NOT NULL,
+  `ClientEmail` varchar(150) NOT NULL,
   `ClientFirstName` varchar(25) NOT NULL,
   `ClientLastName` varchar(30) NOT NULL,
-  `ShippingAddress` varchar(255) NOT NULL,
-  `ClientPassword` varchar(255) NOT NULL,
-  `ClientCardNumber` int(16) DEFAULT NULL,
-  `ClientEmail` varchar(150) NOT NULL
+  `ClientShippingAddress` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -57,12 +54,12 @@ CREATE TABLE `clients` (
 --
 
 CREATE TABLE `orders` (
-  `OrderId` int(10) NOT NULL,
-  `OrderStatus` varchar(100) NOT NULL,
-  `TotalPrice` decimal(10,2) NOT NULL,
-  `OrderDate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `OrderId` int(4) NOT NULL,
+  `OrderStatus` varchar(50) NOT NULL,
   `UPC` int(13) NOT NULL,
-  `ClientEmail` varchar(150) NOT NULL
+  `OrderTotalPrice` decimal(10,2) NOT NULL,
+  `ClientEmail` varchar(150) NOT NULL,
+  `OrderDate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -73,10 +70,10 @@ CREATE TABLE `orders` (
 
 CREATE TABLE `products` (
   `UPC` int(13) NOT NULL,
-  `ProductName` varchar(100) NOT NULL,
+  `ProductName` varchar(50) NOT NULL,
   `ProductDescription` varchar(255) NOT NULL,
   `ProductPrice` decimal(10,2) NOT NULL,
-  `AmountInStock` int(11) NOT NULL
+  `ProductAmount` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -93,16 +90,13 @@ ALTER TABLE `admin`
 -- Indexes for table `clients`
 --
 ALTER TABLE `clients`
-  ADD PRIMARY KEY (`ClientId`),
-  ADD UNIQUE KEY `ClientEmail` (`ClientEmail`);
+  ADD PRIMARY KEY (`ClientEmail`);
 
 --
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`OrderId`),
-  ADD KEY `FKupc` (`UPC`),
-  ADD KEY `FKclientemail` (`ClientEmail`);
+  ADD PRIMARY KEY (`OrderId`);
 
 --
 -- Indexes for table `products`
@@ -115,33 +109,16 @@ ALTER TABLE `products`
 --
 
 --
--- AUTO_INCREMENT for table `clients`
---
-ALTER TABLE `clients`
-  MODIFY `ClientId` int(5) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `OrderId` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `OrderId` int(4) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `UPC` int(13) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `orders`
---
-ALTER TABLE `orders`
-  ADD CONSTRAINT `FKclientemail` FOREIGN KEY (`ClientEmail`) REFERENCES `clients` (`ClientEmail`),
-  ADD CONSTRAINT `FKupc` FOREIGN KEY (`UPC`) REFERENCES `products` (`UPC`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
