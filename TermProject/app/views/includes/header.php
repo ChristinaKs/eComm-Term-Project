@@ -24,13 +24,10 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="/MVC/Home">Home</a>
+      <a class="nav-link" href="/TermProject/Home">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/MVC/User">User</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/MVC/Contact">Contact</a>
+      <a class="nav-link" href="/TermProject/Contact">Contact</a>
     </li>
 
   </ul>
@@ -38,11 +35,11 @@
   <ul class="nav navbar-nav navbar-right">
     <?php
     if (isLoggedIn()) {
-      echo '<li class="nav-item"><a class="nav-link" href="/MVC/Login/logout"><i class="fa-solid fa-sign-out"></i> Logout  '. $_SESSION['user_username'].'</a></li>';
+      echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Login/logout"><i class="fa-solid fa-sign-out"></i> Logout  '. $_SESSION['user_username'].'</a></li>';
     } 
     else {
-      echo '<li class="nav-item"><a class="nav-link" href="/MVC/Login/Create"><i class="fa-solid fa-user-plus"></i> Sign Up</a></li>
-          <li class="nav-item"><a class="nav-link" href="/MVC/Login/"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>';
+      echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Login/Create"><i class="fa-solid fa-user-plus"></i> Sign Up</a></li>
+          <li class="nav-item"><a class="nav-link" href="/TermProject/Login/"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>';
     }
     ?>
   </ul>

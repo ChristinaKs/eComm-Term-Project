@@ -4,8 +4,8 @@
 
 <form class="px-4 py-3" method="post" action="">
     <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+        <label for="ClientEmail">Email</label>
+        <input type="text" class="form-control" id="ClientEmail" name="ClientEmail" placeholder="ClientEmail">
     </div>
     <div class="form-group">
         <label for="password">Password</label>
@@ -13,7 +13,8 @@
     </div>
     <div> 
         <button type="submit" name="login" class="btn btn-primary">Sign in</button>
-        <p class="text-center">Not registered yet? <a href="/MVC/Login/Create">Sign Up</a> </p>
+        <p class="text-center">Not registered yet? <a href="/TermProject/Login/Create">Sign Up</a> </p>
+        <p class="text-center">Admin Login <a href="/TermProject/adminLogin/index">Admin Login</a> </p>
     </div>
     <?php
 
