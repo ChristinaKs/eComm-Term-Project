@@ -6,16 +6,19 @@
         }
     
         public function getClient($ClientEmail){
-            $this->db->query("SELECT * FROM credentials WHERE ClientEmail = :ClientEmail");
+            $this->db->query("SELECT * FROM clients WHERE ClientEmail = :ClientEmail");
             $this->db->bind(':ClientEmail',$ClientEmail);
             return $this->db->getSingle();
         }
 
         public function createClient($data){
-            $this->db->query("INSERT INTO credentials (ClientEmail, pass_hash) values (:ClientEmail, :pass_hash)");
+            $this->db->query("INSERT INTO clients (ClientFirstName, ClientLastName, ClientShippingAddress, ClientEmail, ClientPassword) values (:ClientFirstName,
+                        :ClientLastName, :ClientShippingAddress, :ClientEmail, :ClientPassword)");
+            $this->db->bind(':ClientFirstName', $data['ClientFirstName']);
+            $this->db->bind(':ClientLastName', $data['ClientLastName']);
+            $this->db->bind(':ClientShippingAddress', $data['ClientShippingAddress']);
+            $this->db->bind(':ClientPassword', $data['ClientPassword']);
             $this->db->bind(':ClientEmail', $data['ClientEmail']);
-            $this->db->bind(':pass_hash', $data['pass_hash']);
-
 
             if($this->db->execute()){
                 return true;
