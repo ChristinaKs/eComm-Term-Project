@@ -5,10 +5,10 @@
             $this->db = new Model;
         }
     
-        //TODO
-        public function getUser($username){
-            $this->db->query("SELECT * FROM credentials WHERE username = :username");
-            $this->db->bind(':username',$username);
+        //Done
+        public function getAdmin($AdminEmail){
+            $this->db->query("SELECT * FROM admin WHERE AdminEmail = :AdminEmail");
+            $this->db->bind(':AdminEmail',$AdminEmail);
             return $this->db->getSingle();
         }
     }
