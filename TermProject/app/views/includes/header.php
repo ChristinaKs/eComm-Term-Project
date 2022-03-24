@@ -29,13 +29,16 @@
     <li class="nav-item">
       <a class="nav-link" href="/TermProject/Contact">Contact</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/TermProject/AboutUs">About Us</a>
+    </li>
 
   </ul>
 
   <ul class="nav navbar-nav navbar-right">
     <?php
     if (isLoggedIn()) {
-      echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Login/logout"><i class="fa-solid fa-sign-out"></i> Logout  '. $_SESSION['user_username'].'</a></li>';
+      echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Login/logout"><i class="fa-solid fa-sign-out"></i> Logout </a></li>';
     } 
     else {
       echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Login/Create"><i class="fa-solid fa-user-plus"></i> Sign Up</a></li>
