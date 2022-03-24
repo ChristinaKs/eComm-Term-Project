@@ -13,11 +13,13 @@
                 echo '../app/views/'.$name.'.php does not exists';
             }
         }
-        
+
         public function model($modelName){
             require_once '../app/models/'.$modelName.'.php';
             return new $modelName;
         }
+
+
 
 
     }
