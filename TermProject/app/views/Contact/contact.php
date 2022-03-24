@@ -1,32 +1,30 @@
 <?php require APPROOT . '/views/includes/header.php';  ?>
 <form>
   <div class="form-group">
-    <label for="exampleFormControlInput1">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  <?php
+  if (!isLoggedIn()) {
+    echo '<label for="exampleFormControlInput1">Email address</label>
+     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">';
+  }?>
   </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
+    <label for="exampleFormControlSelect1">Select a message type</label>
     <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+      <option style="color:	rgb(220,220,220)">--Select type--</option>
+      <option>Payment</option>
+      <option>Delivery</option>
+      <option>Items in the store</option>
+      <option>Account</option>
+      <option>Other</option>
     </select>
   </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect2">Example multiple select</label>
-    <select multiple class="form-control" id="exampleFormControlSelect2">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <label for="exampleFormControlTextarea1">Input your message</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
+
+  <div>
+        <button type="submit" name="SendMessage" class="btn btn-primary">Send message</button>
+    </div>
 </form>
     <?php require APPROOT . '/views/includes/footer.php'; ?>
