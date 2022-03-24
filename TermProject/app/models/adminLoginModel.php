@@ -7,7 +7,9 @@
     
         //TODO
         public function getUser($username){
-            
+            $this->db->query("SELECT * FROM credentials WHERE username = :username");
+            $this->db->bind(':username',$username);
+            return $this->db->getSingle();
         }
     }
 ?>

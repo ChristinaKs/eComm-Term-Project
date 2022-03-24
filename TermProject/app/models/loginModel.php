@@ -5,15 +5,15 @@
             $this->db = new Model;
         }
     
-        public function getUser($username){
-            $this->db->query("SELECT * FROM credentials WHERE username = :username");
-            $this->db->bind(':username',$username);
+        public function getClient($ClientEmail){
+            $this->db->query("SELECT * FROM credentials WHERE ClientEmail = :ClientEmail");
+            $this->db->bind(':ClientEmail',$ClientEmail);
             return $this->db->getSingle();
         }
 
-        public function createUser($data){
-            $this->db->query("INSERT INTO credentials (username, pass_hash) values (:username, :pass_hash)");
-            $this->db->bind(':username', $data['username']);
+        public function createClient($data){
+            $this->db->query("INSERT INTO credentials (ClientEmail, pass_hash) values (:ClientEmail, :pass_hash)");
+            $this->db->bind(':ClientEmail', $data['ClientEmail']);
             $this->db->bind(':pass_hash', $data['pass_hash']);
 
 

@@ -12,29 +12,28 @@ class Login extends Controller
             $this->view('Login/index');
         }
         else{
-            $user = $this->loginModel->getUser($_POST['username']);
+            $client = $this->loginModel->getClient($_POST['ClientEmail']);
             
-            if($user != null){
-                $hashed_pass = $user->pass_hash;
+            if($client != null){
+                $hashed_pass = $client->pass_hash;
                 $password = $_POST['password'];
                 if(password_verify($password,$hashed_pass)){
-                    //echo '<meta http-equiv="Refresh" content="2; url=/MVC/">';
-                    $this->createSession($user);
+                    $this->createSession($client);
                     $data = [
-                        'msg' => "Welcome, $user->username!",
+                        'msg' => "Welcome, $client->ClientEmail!",
                     ];
                     $this->view('Home/home',$data);
                 }
                 else{
                     $data = [
-                        'msg' => "Password incorrect! for $user->username",
+                        'msg' => "Password incorrect! for $client->ClientEmail",
                     ];
                     $this->view('Login/index',$data);
                 }
             }
             else{
                 $data = [
-                    'msg' => "User: ". $_POST['username'] ." does not exists",
+                    'msg' => "Email: ". $_POST['ClientEmail'] ." does not exists",
                 ];
                 $this->view('Login/index',$data);
             }
@@ -47,20 +46,20 @@ class Login extends Controller
             $this->view('Login/create');
         }
         else{
-            $user = $this->loginModel->getUser($_POST['username']);
-            if($user == null){
+            $client = $this->loginModel->getClient($_POST['ClientEmail']);
+            if($client == null){
                 $data = [
-                    'username' => trim($_POST['username']),
+                    'ClientEmail' => trim($_POST['ClientEmail']),
                     'pass_hash' => password_hash($_POST['password'], PASSWORD_DEFAULT),
                 ];
-                if($this->loginModel->createUser($data)){
-                        echo 'Please wait creating the account for '.trim($_POST['username']);
+                if($this->loginModel->createClient($data)){
+                        echo 'Please wait creating the account for '.trim($_POST['ClientEmail']);
                         echo '<meta http-equiv="Refresh" content="2; url=/TermProject/Login/">';
                 }
             }
             else{
                 $data = [
-                    'msg' => "User: ". $_POST['username'] ." already exists",
+                    'msg' => "Email: ". $_POST['ClientEmail'] ." already exists",
                 ];
                 $this->view('Login/create',$data);
             }
@@ -68,13 +67,12 @@ class Login extends Controller
         }
     }
 
-    public function createSession($user){
-        $_SESSION['user_id'] = $user->id;
-        $_SESSION['user_username'] = $user->username;
+    public function createSession($client){
+        $_SESSION['ClientEmail'] = $client->ClientEmail;
     }
 
     public function logout(){
-        unset($_SESSION['user_id']);
+        unset($_SESSION['ClientEmail']);
         session_destroy();
         echo '<meta http-equiv="Refresh" content="1; url=/TermProject/Login/">';
     }
