@@ -10,4 +10,12 @@
         }
       }
 
+      function isAdminLoggedIn(){
+        if(isset($_SESSION['AdminEmail'])){
+          return true;
+        } else {
+          return false;
+        }
+      }
+
 ?>

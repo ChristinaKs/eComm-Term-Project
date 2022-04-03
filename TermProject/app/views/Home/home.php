@@ -1,7 +1,10 @@
 <?php require APPROOT . '/views/includes/header.php'; 
 ?>
-    <h1>Home View</h1>
-    <p>This view is invoked by HomeController</p>
+    <form method="POST">
+        <label>Search for a product:</label>
+        <input type="text" id="searchBar" name="searchBar" placeholder="Search...">
+        <button type="submit" id="searchButton" name="searchButton" >Search</button>
+    </form>
 
     <?php
         if($data != []){
