@@ -3,8 +3,9 @@
     <form method="POST">
         <label>Search for a product:</label>
         <input type="text" id="searchBar" name="searchBar" placeholder="Search...">
-        <button type="submit" name="searchButton" >Search</button>
+        <button type="submit" name="searchButton" class='btn btn-dark'>Search</button>
     </form>
+    <h2>Results for <?php echo $data['Search']?></h2>
     <?php
         // var_dump($searchResult)
         /*foreach[$searchResult as $result]{

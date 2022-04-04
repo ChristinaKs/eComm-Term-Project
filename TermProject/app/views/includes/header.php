@@ -32,10 +32,12 @@
     <li class="nav-item">
       <a class="nav-link" href="/TermProject/AboutUs">About Us</a>
     </li>
-
   </ul>
 
   <ul class="nav navbar-nav navbar-right">
+    <li class="nav-item">
+      <a class="nav-link" href='/TermProject/Cart'>My cart</a>
+    </li>
     <?php
     if (isLoggedIn()) {
       echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Login/logout"><i class="fa-solid fa-sign-out"></i> Logout </a></li>';
