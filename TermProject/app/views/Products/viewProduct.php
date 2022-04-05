@@ -5,8 +5,8 @@
     <figure>
         picture will be here
     </figure>
-    <h3><?php echo $productToSend->ProductName?></h3>
-    <p><?php echo $productToSend->ProductDescription?></p>
+    <h3><?php echo $data->ProductName?></h3>
+    <p><?php echo $data->ProductDescription?></p>
 </article>
 <form method="POST">
     <button id='addToCart' name='addToCart' class='btn btn-success'><a href='/TermProject/Cart/userCart'></a> Add to cart</button>

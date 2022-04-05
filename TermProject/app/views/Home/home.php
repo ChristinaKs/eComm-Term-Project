@@ -3,9 +3,11 @@
     <form method="POST">
         <label>Search for a product:</label>
         <input type="text" id="searchBar" name="searchBar" placeholder="Search...">
-        <button type="submit" id="searchButton" name="searchButton" class='btn btn-dark'>Search</button>
+        <button type="submit" id="searchButton" name="searchButton" class='btn btn-dark'> <a href="/TermProject/Home/searchProduct">Search </a> </button>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button type="submit" id="random" name="random" class='btn btn-dark right'>Pick Product For Me</button>
+            <button type="submit" id="random" name="random" class='btn btn-dark right'>
+                
+           <a href="/TermProject/Home/RandomProduct"> Pick Product For Me </a></button>
         </div>   
     </form>
 
@@ -26,7 +28,7 @@
                     echo"<td>$product->ProductName</td>";
                     echo"<td>$product->ProductPrice</td>";
                     echo"<td>
-                    <button id='viewProduct' name='viewProoduct' class='btn btn-primary'><a href='Products/viewProduct/$product->UPC'></a> View </button>
+                    <button id='viewProduct' name='viewProoduct' class='btn btn-primary'><a href='Home/viewProduct/$product->UPC'> View </a></button>
                     </td>";
                     echo"<td>
                     <form method='POST'>

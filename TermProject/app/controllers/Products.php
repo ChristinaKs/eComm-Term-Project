@@ -1,6 +1,6 @@
 <?php
 
-    class User extends Controller{
+    class Products extends Controller{
         public function __construct(){
             $this->productsModel = $this->model('productsModel');
             if(!isAdminLoggedIn()){
@@ -10,6 +10,9 @@
 
         public function index(){
             $this->view('Products/index');
+            if(isset($_POST['viewProduct'])){
+                $this->view('Products/viewProduct');
+            }
         }
 
         public function getUsers(){
@@ -75,6 +78,7 @@
                 $this->view('Products/details',$UPC);
         }
 
+       
         public function update($UPC){
             $products = $this->productsModel->getProduct($UPC);
             if(!isset($_POST['update'])){
