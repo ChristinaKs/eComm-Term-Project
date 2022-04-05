@@ -26,12 +26,12 @@
     <li class="nav-item">
       <a class="nav-link" href="/TermProject/Home">Home</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/TermProject/Contact">Contact</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/TermProject/AboutUs">About Us</a>
-    </li>
+    <?php
+    if(!isAdminLoggedIn()){
+      echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Contact">Contact</a></li>';
+    echo '<li class="nav-item"><a class="nav-link" href="/TermProject/AboutUs">About Us</a></li>';
+    }
+    ?>
   </ul>
 
   <ul class="nav navbar-nav navbar-right">
