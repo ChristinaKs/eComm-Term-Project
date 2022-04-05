@@ -39,7 +39,7 @@
       <a class="nav-link" href="/TermProject/Cart/userCart">My cart</a>
     </li>
     <?php
-    if (isLoggedIn()) {
+    if (isLoggedIn() || isAdminLoggedIn()) {
       echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Login/logout"><i class="fa-solid fa-sign-out"></i> Logout </a></li>';
     } 
     else {
