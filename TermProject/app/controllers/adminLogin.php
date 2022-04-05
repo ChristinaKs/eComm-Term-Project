@@ -24,7 +24,7 @@ class adminLogin extends Controller
                     $data = [
                         'msg' => "Welcome, $user->AdminFirstName $user->AdminLastName!",
                     ];
-                    $this->view('Home/home',$data);
+                    $this->view('Products/getProducts',$data);
                 }
                 else{
                     $data = [

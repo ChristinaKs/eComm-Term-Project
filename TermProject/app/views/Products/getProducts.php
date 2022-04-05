@@ -25,7 +25,7 @@
             <td colspan="3" class="text-center"> Actions</td>
         </tr>
         <?php
-            foreach($data["products"] as $product){
+            foreach($data["products"] as $products){
                 echo"<tr>";
                 echo '<td>
                 <div class="d-flex align-items-center"><img class="rounded-circle" src="'.URLROOT.'/public/img/'.$user->Picture.'" width="30"><span class="ml-2">'.$user->Name.'</span></div>
