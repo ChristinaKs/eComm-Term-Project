@@ -14,22 +14,39 @@ class Home extends Controller
                 'product' => $products
             ];
         $this->view('Home/home', $data);
-
-        //search functionality
+        
+        if(isset($_POST['random'])){
+            $this->chooseRandomProduct();
+        }
         if(isset($_POST['searchButton'])){
             $this->searchProduct();
-        }else{
-            $this->view('Home/home');
         }
-        
     }
 
+    public function chooseRandomProduct(){
+        //random product
+        if(!isset($_POST['random'])){
+            $this->view('Home/home');
+        }else{
+            $numOfProduct = count($this->productsModel->getProducts());
+            $randomProduct = rand(1,$numOfProduct);
+            $productToSend = $this->productsModel->getProduct($randomProduct);
+            $this->view('Products/viewProduct',$productToSend);
+        } 
+    }
     public function searchProduct(){
-            $data=[
-                'Search' => trim($_POST['searchBar'])
-            ];
-            $searchResult = $this->productsModel->searchProduct($data);
-            //var_dump($searchResult);
-            $this->view('Products/searchProducts',$searchResult,$data);
+            //search functionality
+            if(!isset($_POST['searchButton'])){
+                $this->view('Home/home');
+            }else{
+                $data=[
+                    'Search' => trim($_POST['searchBar'])
+                ];
+                $searchResult = $this->productsModel->searchProduct($data);
+                //var_dump($searchResult);
+                $this->view('Products/searchProducts',$searchResult,$data);
+            }
+
+            
     }
 }
