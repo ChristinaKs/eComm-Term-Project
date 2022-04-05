@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2022 at 04:05 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+-- Generation Time: Apr 05, 2022 at 03:06 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,6 +37,20 @@ CREATE TABLE `admin` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `clientEmail` varchar(150) NOT NULL,
+  `UPC` int(11) NOT NULL,
+  `ProductName` varchar(50) NOT NULL,
+  `ProductPrice` decimal(10,2) NOT NULL,
+  `Quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `clients`
 --
 
@@ -47,6 +61,13 @@ CREATE TABLE `clients` (
   `ClientShippingAddress` varchar(255) NOT NULL,
   `ClientPassword` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `clients`
+--
+
+INSERT INTO `clients` (`ClientEmail`, `ClientFirstName`, `ClientLastName`, `ClientShippingAddress`, `ClientPassword`) VALUES
+('sarah@gmail.com', 'sarah', 'tester', '1234 testing route', '$2y$10$DzCF.FWH9Jzi/XKs3/kf9O8OyZ7N8cFBQWy4ZzaZINxUx4XD0Scba');
 
 -- --------------------------------------------------------
 
@@ -78,6 +99,14 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`UPC`, `ProductName`, `ProductDescription`, `ProductPrice`, `ProductAmount`) VALUES
+(1, 'Product', 'yoo', '15.00', 3),
+(2, 'AnotherOne', 'djKhaled', '150.00', 5);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -86,6 +115,13 @@ CREATE TABLE `products` (
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`AdminEmail`);
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD KEY `cart_clientEmail_FK` (`clientEmail`),
+  ADD KEY `cart_UPC_FK` (`UPC`);
 
 --
 -- Indexes for table `clients`
@@ -119,7 +155,18 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `UPC` int(13) NOT NULL AUTO_INCREMENT;
+  MODIFY `UPC` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart_UPC_FK` FOREIGN KEY (`UPC`) REFERENCES `products` (`UPC`),
+  ADD CONSTRAINT `cart_clientEmail_FK` FOREIGN KEY (`clientEmail`) REFERENCES `clients` (`ClientEmail`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
