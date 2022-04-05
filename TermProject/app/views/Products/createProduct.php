@@ -8,7 +8,7 @@
         <a class="nav-link" href="/TermProject/Products/getProducts">Get Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/TermProject/Products/createProducts">Create Products</a>
+        <a class="nav-link" href="/TermProject/Products/createProduct">Create Product</a>
       </li>
     </ul>
   </div>

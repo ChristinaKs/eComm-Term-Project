@@ -8,7 +8,7 @@
         <a class="nav-link" href="/TermProject/Products/getProducts">Get Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/TermProject/Products/createProducts">Create Products</a>
+        <a class="nav-link" href="/TermProject/Products/createProduct">Create Product</a>
       </li>
     </ul>
   </div>
@@ -17,6 +17,7 @@
     <h1>Get Products View</h1>
     <table  class="table table-bordered">
         <tr>
+            <td>Image</td>
             <td>UPC</td>
             <td>Product Name</td>
             <td>Description</td>
@@ -28,7 +29,7 @@
             foreach($data["products"] as $products){
                 echo"<tr>";
                 echo '<td>
-                <div class="d-flex align-items-center"><img class="rounded-circle" src="'.URLROOT.'/public/img/'.$user->Picture.'" width="30"><span class="ml-2">'.$user->Name.'</span></div>
+                <div class="d-flex align-items-center"><img class="rounded-circle" src="'.URLROOT.'/public/img/'.$products->picture.'" width="30"><span class="ml-2">'.$products->ProductName.'</span></div>
             </td>';
                 echo"<td>$products->UPC</td>";
                 echo"<td>$products->ProductName</td>";
@@ -36,15 +37,13 @@
                 echo"<td>$products->ProductPrice</td>";
                 echo"<td>$products->ProductAmount</td>";
                 echo"<td>
-                <a href='/TermProject/Products/details/$products->UPC'> Details</a>
-                </td>";
-                echo"<td>
                 <a href='/TermProject/Products/update/$products->UPC'> Update</a>
                 </td>";
                 echo"<td>
                 <a href='/TermProject/Products/delete/$products->UPC'> Delete</a>
                 </td>";
                 echo"</tr>";
+                //var_dump("products");
             }
         ?>
     </table>

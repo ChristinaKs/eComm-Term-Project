@@ -17,12 +17,12 @@
         }
 
         public function createProduct($data){
-            $this->db->query("INSERT INTO products (ProductName, ProductDescription, ProductPrice, ProductAmount, ProductPicture) values (:ProductName, :ProductDescription, :ProductPrice, :ProductAmount, :ProductPicture)");
+            $this->db->query("INSERT INTO products (ProductName, ProductDescription, ProductPrice, ProductAmount, picture) values (:ProductName, :ProductDescription, :ProductPrice, :ProductAmount, :picture)");
             $this->db->bind(':ProductName', $data['ProductName']);
             $this->db->bind(':ProductDescription', $data['ProductDescription']);
             $this->db->bind(':ProductPrice', $data['ProductPrice']);
             $this->db->bind(':ProductAmount',$data['ProductAmount']);
-            $this->db->bind(':ProductPicture',$data['ProductPicture']);
+            $this->db->bind(':picture',$data['picture']);
 
             if($this->db->execute()){
                 return true;
@@ -33,12 +33,12 @@
         }
 
         public function updateProduct($data){
-            $this->db->query("UPDATE products SET ProductName=:ProductName, ProductDescription=:ProductDescription, ProductPrice=:ProductPrice, ProductAmount=:ProductAmount, ProductPicture=:ProductPicture WHERE UPC=:UPC");
+            $this->db->query("UPDATE products SET ProductName=:ProductName, ProductDescription=:ProductDescription, ProductPrice=:ProductPrice, ProductAmount=:ProductAmount, picture=:picture WHERE UPC=:UPC");
             $this->db->bind(':ProductName', $data['ProductName']);
             $this->db->bind(':ProductDescription', $data['ProductDescription']);
             $this->db->bind(':ProductPrice', $data['ProductPrice']);
             $this->db->bind(':ProductAmount', $data['ProductAmount']);
-            $this->db->bind(':ProductPicture',$data['ProductPicture']);
+            $this->db->bind(':picture',$data['picture']);
             $this->db->bind('UPC',$data['UPC']);
             if($this->db->execute()){
                 return true;

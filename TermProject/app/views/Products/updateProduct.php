@@ -32,8 +32,8 @@
         <input name="ProductAmount" type="text" class="form-control" id="ProductAmount" value="<?php echo $data->ProductAmount?>">
     </div>
     <div class="form-group">
-        <label for="ProductPicture">Product picture</label>
-        <input type='file' name='ProductPicture' class='form-control' />
+        <label for="picture">Product picture</label>
+        <input type='file' name='picture' class='form-control' />
     </div>
 
     <button type="submit" name='update' class="btn btn-primary">Update</button>
