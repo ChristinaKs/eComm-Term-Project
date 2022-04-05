@@ -16,7 +16,7 @@ class adminLogin extends Controller
             $user = $this->adminLoginModel->getAdmin($_POST['AdminEmail']);
             
             if($user != null){
-                $hashed_pass = $user->AdminPassword;
+                $hashed_pass = $user->AdminPasswordHash;
                 $password = $_POST['AdminPassword'];
                 if(password_verify($password,$hashed_pass)){
                     //echo '<meta http-equiv="Refresh" content="2; url=/MVC/">';
