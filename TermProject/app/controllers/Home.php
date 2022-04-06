@@ -30,7 +30,7 @@ class Home extends Controller
             $randomProduct = rand(1,$numOfProduct);
             $productToSend = $this->productsModel->getProduct($randomProduct);
             
-            $this->view('Products/viewProduct',$productToSend);
+            $this->view('ClientSide/viewProduct',$productToSend);
         
     }
     public function searchProduct(){
@@ -40,8 +40,7 @@ class Home extends Controller
                     'Search' => trim($_POST['searchBar'])
                 ];
                 $searchResult = $this->productsModel->searchProduct($data);
-                //var_dump($searchResult);
-                $this->view('Products/searchProducts',$data);
+                $this->view('ClientSide/searchProducts',$searchResult);
             
 
             
@@ -49,9 +48,29 @@ class Home extends Controller
 
     public function viewProduct($UPC){
         $product = $this->productsModel->getProduct($UPC);
-        $this->view('Products/viewProduct',$product);
+        $this->view('ClientSide/viewProduct',$product);
     }
 
+    public function AddCart($UPC){
+        if(!isLoggedIn()){
+            //can only start adding to cart when signed in
+            $this->view('Login/index');
+        }else{
+            $product = $this->productsModel->getProduct($UPC);
+            $data=[
+                'ClientEmail' => $_SESSION['ClientEmail'],
+                'UPC' => $product->UPC,
+                'ProductName' => $product->ProductName,
+                'ProductPrice' => $product->ProductPrice,
+                'Quantity' => 1
+            ];
+
+            if($this->cartModel->addCart($data)){
+                $this->view('Cart/userCart',$data);
+            }
+        }
+        
+    }
 
  
 }

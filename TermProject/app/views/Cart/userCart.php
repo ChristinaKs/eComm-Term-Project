@@ -14,15 +14,15 @@
             </tr>
         <tbody>
             <?php 
-                foreach($data['product'] as $product){
+                foreach($data as $product){
                     echo"<tr>";
                     echo '<td> Picture of product will be here</td>';
                     echo"<td>$product->ProductName</td>";
                     echo"<td>$product->ProductPrice</td>";
-                    echo"<td>Quantity will be here and can be changed</td>";
+                    echo"<td>$product->Quantity</td>";
                     echo"<td>
                     <form method='POST'>
-                    <button id='addToCart' name='addToCart' class='btn btn-success'>Remove from cart</button>
+                    <button id='addToCart' name='addToCart' class='btn btn-success'><a href='userCart/removeItem/$product->UPC'> Remove from cart</a></button>
                     </form>
                     </td>";
                     echo"</tr>";
@@ -30,7 +30,7 @@
         
             ?>
         </tbody>
-        <button id='checkout' name='checkout' class='btn btn-dark'>Checkout</button>
-        <button id='backHome' name='backHome' class='btn btn-success'><a href="Home/home">Continue Shopping</a></button>
     </table>
+    <button id='checkout' name='checkout' class='btn btn-dark'>Checkout</button>
+    <button id='backHome' name='backHome' class='btn btn-success'><a href="Home/home">Continue Shopping</a></button>
 <?php require APPROOT . '/views/includes/footer.php'; ?>

@@ -3,14 +3,9 @@
     <form method="POST">
         <label>Search for a product:</label>
         <input type="text" id="searchBar" name="searchBar" placeholder="Search...">
-        <button type="submit" id="searchButton" name="searchButton" class='btn btn-dark'> <a href="/TermProject/Home/searchProduct">Search </a> </button>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button type="submit" id="random" name="random" class='btn btn-dark right'>
-                
-           <a href="/TermProject/Home/RandomProduct"> Pick Product For Me </a></button>
-        </div>   
+        <button type="submit" name="searchButton" class='btn btn-dark'>Search</button>
     </form>
-
+    <h2>Results</h2>
     <table class="table">
         <thead class="table-light">
         </thead>
@@ -22,17 +17,17 @@
             </tr>
         <tbody>
             <?php 
-                foreach($data['product'] as $product){
+                foreach($data as $result){
                     echo"<tr>";
                     echo '<td> Picture of product will be here</td>';
-                    echo"<td>$product->ProductName</td>";
-                    echo"<td>$product->ProductPrice</td>";
+                    echo"<td>$result->ProductName</td>";
+                    echo"<td>$result->ProductPrice</td>";
                     echo"<td>
-                    <button id='viewProduct' name='viewProoduct' class='btn btn-primary'><a href='Home/viewProduct/$product->UPC'> View </a></button>
+                    <button id='viewProduct' name='viewProoduct' class='btn btn-primary'><a href='/Home/viewProduct/$result->UPC'> View </a></button>
                     </td>";
                     echo"<td>
                     <form method='POST'>
-                    <button id='addToCart' name='addToCart' class='btn btn-success'><a href='Home/AddCart/$product->UPC'>Add to cart </a></button>
+                    <button id='addToCart' name='addToCart' class='btn btn-success'><a href='/Home/AddCart/$result->UPC'>Add to cart </a></button>
                     </form>
                     </td>";
                     echo"</tr>";
