@@ -20,18 +20,18 @@
 
     <div class="form-group">
         <label for="ProductName">Product Name</label>
-        <input name="name" type="text" class="form-control" id="ProductName" placeholder="Name of the product">
+        <input name="ProductName" type="text" class="form-control" id="ProductName" placeholder="Name of the product">
     </div><div class="form-group">
         <label for="ProductDescription">Product Description</label>
-        <input name="name" type="text" class="form-control" id="ProductDescription" placeholder="Description of the product">
+        <input name="ProductDescription" type="text" class="form-control" id="ProductDescription" placeholder="Description of the product">
     </div>
     <div class="form-group">
         <label for="ProductPrice">Product Price</label>
-        <input name="name" type="text" class="form-control" id="ProductPrice" placeholder="Price of the product">
+        <input name="ProductPrice" type="text" class="form-control" id="ProductPrice" placeholder="Price of the product">
     </div>
     <div class="form-group">
         <label for="ProductAmount">Quantity Available</label>
-        <input name="name" type="text" class="form-control" id="ProductAmount" placeholder="Quantity available">
+        <input name="ProductAmount" type="text" class="form-control" id="ProductAmount" placeholder="Quantity available">
     </div>
     <div class="form-group">
         <label for="ProductPicture">Product picture</label>
