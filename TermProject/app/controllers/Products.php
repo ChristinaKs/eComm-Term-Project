@@ -84,21 +84,32 @@
             if(!isset($_POST['update'])){
                 $this->view('Products/updateProduct',$UPC);
             }
-                $filename= $this->imageUpload();
-                $data=[
-                    'ProductName' => trim($product->ProductName),
-                    'ProductDescription' => trim($product->ProductDescription),
-                    'ProductPrice' => trim($product->ProductPrice),
-                    'ProductAmount' => trim($product->ProductAmount),
-                    'picture' => $filename,
-                    'UPC' => $UPC
-                ];
-                if($this->productsModel->updateProduct($data)){
-                    echo 'Please wait we are upating the Product for you!';
-                    echo '<meta http-equiv="Refresh" content="2; url=/TermProject/Products/getProducts">';
-                }
-                
+            $filename= $this->imageUpload();
+            $data=[
+                'ProductName' => trim($product->ProductName),
+                'ProductDescription' => trim($product->ProductDescription),
+                'ProductPrice' => trim($product->ProductPrice),
+                'ProductAmount' => trim($product->ProductAmount),
+                'picture' => $filename,
+                'UPC' => $UPC
+            ];
+            if($this->productsModel->updateProduct($data)){
+                echo 'Please wait we are upating the Product for you!';
+                echo '<meta http-equiv="Refresh" content="2; url=/TermProject/Products/getProducts">';
             }
+                
+        }
+
+        public function delete($UPC){
+            $data=[
+                'UPC' => $UPC
+            ];
+            if($this->productsModel->delete($data)){
+                echo 'Please wait we are deleting the product for you!';
+                echo '<meta http-equiv="Refresh" content=".2; url=/TermProject/Products/getProducts">';
+            }
+
+        }
         
     }
 

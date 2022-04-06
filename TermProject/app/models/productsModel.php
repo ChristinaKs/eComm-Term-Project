@@ -54,6 +54,19 @@
             $this->db->bind(':search', "%".$data['Search']."%");
             return $this->db->getResultSet();
         }
+
+        public function delete($data){
+            $this->db->query("DELETE FROM products WHERE UPC=:UPC");
+            $this->db->bind('UPC',$data['UPC']);
+
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+
+        }
     }
 
 ?>
