@@ -27,16 +27,16 @@
       <a class="nav-link" href="/TermProject/Home">Home</a>
     </li>
     <?php
-    if(!isAdminLoggedIn()){
+    //if(!isAdminLoggedIn()){
       echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Contact">Contact</a></li>';
-      echo '<li class="nav-item"><a class="nav-link" href="/TermProject/AboutUs">About Us</a></li>';
-    }
+    echo '<li class="nav-item"><a class="nav-link" href="/TermProject/About">About Us</a></li>';
+    
     ?>
   </ul>
 
   <ul class="nav navbar-nav navbar-right">
     <li class="nav-item">
-      <a class="nav-link" href="/TermProject/userCart">My cart</a>
+      <a class="nav-link" href="/TermProject/Cart/userCart">My cart</a>
     </li>
     <?php
     if (isLoggedIn() || isAdminLoggedIn()) {
