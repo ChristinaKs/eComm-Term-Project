@@ -9,4 +9,12 @@ class About extends Controller
     {
         $this->view('About/aboutus');
     }
+
+    public function displayAbout(){
+        $about = $this->aboutModel->displayAbout();
+        $data = [
+            "about" => $about
+        ];
+        $this->view('About/aboutus',$data);
+    }
 }
