@@ -25,7 +25,7 @@
         }
 
         public function createProduct(){
-            if(!isset($_POST['add'])){
+            if(!isset($_POST['register'])){
                 $this->view('Products/createProduct');
             }
             else{
