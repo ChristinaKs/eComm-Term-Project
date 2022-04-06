@@ -4,6 +4,7 @@ class Home extends Controller
     public function __construct()
     {
         $this->productsModel = $this->model('productsModel');
+        $this->cartModel = $this->model('cartModel');
     }
 
     public function index()
@@ -35,12 +36,20 @@ class Home extends Controller
     }
     public function searchProduct(){
             //search functionality
-           
+            if(!isset($_POST['searchBar'])){
+                $products = $this->productsModel->getProducts();
+                $data = [
+                    'product' => $products
+                ];
+            $this->view('Home/home', $data);
+            }else{
                 $data=[
                     'Search' => trim($_POST['searchBar'])
                 ];
+                var_dump($data);
                 $searchResult = $this->productsModel->searchProduct($data);
                 $this->view('ClientSide/searchProducts',$searchResult);
+            }
             
 
             

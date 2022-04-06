@@ -14,23 +14,31 @@
             </tr>
         <tbody>
             <?php 
+                // echo "<pre>";
+                // var_dump($data);
+                // echo "</pre>";
+               
+                // var_dump($data["ProductName"]);
                 foreach($data as $product){
-                    echo"<tr>";
-                    echo '<td> Picture of product will be here</td>';
-                    echo"<td>$product->ProductName</td>";
-                    echo"<td>$product->ProductPrice</td>";
-                    echo"<td>$product->Quantity</td>";
-                    echo"<td>
-                    <form method='POST'>
-                    <button id='addToCart' name='addToCart' class='btn btn-success'><a href='userCart/removeItem/$product->UPC'> Remove from cart</a></button>
-                    </form>
-                    </td>";
-                    echo"</tr>";
+                    echo "<pre>";
+                    var_dump($product);
+                    echo "</pre>";
+                     echo"<tr>";
+                     echo '<td> Picture of product will be here</td>';
+                     echo"<td>".$product."</td>";
+                     echo"<td>".$product."</td>";
+                     echo"<td>".$product."</td>";
+                     echo"<td>
+                     <form method='POST'>
+                     <button id='addToCart' name='addToCart' class='btn btn-danger'><a href='userCart/removeItem/$product->UPC'> Remove from cart</a></button>
+                     </form>
+                     </td>";
+                     echo"</tr>";
                 }
         
             ?>
         </tbody>
     </table>
     <button id='checkout' name='checkout' class='btn btn-dark'>Checkout</button>
-    <button id='backHome' name='backHome' class='btn btn-success'><a href="Home/home">Continue Shopping</a></button>
+    <button id='backHome' name='backHome' class='btn btn-success'><a href='TermProject/Home'>Continue Shopping</a></button>
 <?php require APPROOT . '/views/includes/footer.php'; ?>

@@ -20,10 +20,10 @@ class Login extends Controller
                 if(password_verify($password,$hashed_pass)){
                     //echo '<meta http-equiv="Refresh" content="2; url=/MVC/">';
                     $this->createSession($user);
-                    $data = [
+                    /*$data = [
                         'msg' => "Welcome, $user->ClientFirstName $user->ClientLastName!",
-                    ];
-                    $this->view('Home/home',$data);
+                    ];*/
+                    $this->view('Home/home');
                 }
                 else{
                     $data = [

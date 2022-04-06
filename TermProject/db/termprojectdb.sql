@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2022 at 03:06 AM
+-- Generation Time: Apr 06, 2022 at 09:17 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -24,6 +24,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `about`
+--
+
+CREATE TABLE `about` (
+  `firstparagraph` varchar(750) NOT NULL,
+  `secondparagraph` varchar(750) NOT NULL,
+  `thirdparagraph` varchar(750) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `about`
+--
+
+INSERT INTO `about` (`firstparagraph`, `secondparagraph`, `thirdparagraph`) VALUES
+('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia nulla a justo dignissim, id convallis mauris auctor. Phasellus efficitur luctus justo quis interdum. In in tellus ac purus rhoncus iaculis ut nec nibh. Mauris rhoncus venenatis elit, vel scelerisque ex molestie non. Aliquam sit amet efficitur dolor, id tincidunt enim. Donec quam diam, bibendum eget nisi vitae, venenatis gravida erat. Nam dui tellus, iaculis quis odio euismod, finibus sollicitudin massa. Duis dapibus metus lobortis ultrices egestas. Donec elementum turpis placerat velit tempus, vel dictum nisi lobortis. Pellentesque in hendrerit libero, sed sodales elit.', 'Vestibulum fermentum interdum nisi, a mollis nisl volutpat nec. Nulla eget bibendum lectus. Donec dictum id dolor lacinia varius. Curabitur tristique mollis massa ut commodo. Fusce ornare orci eu aliquam pellentesque. Phasellus ac dolor sem. Nunc vitae sodales elit. In sed pulvinar elit, vel luctus massa. Pellentesque accumsan risus est, ut accumsan quam feugiat eget. Morbi purus justo, tincidunt vel aliquet nec, pharetra at tortor. Mauris vestibulum sed nulla ac euismod. Nulla et sagittis orci. Maecenas in ipsum a lacus lacinia sodales mattis eget nulla.', 'Quisque orci arcu, dignissim a eleifend ac, sagittis eu velit. In euismod tortor nec pretium iaculis. Integer dui urna, sagittis vel accumsan et, faucibus ac nisl. Curabitur imperdiet a massa ac bibendum. Aliquam sed lacinia nibh, ac vulputate erat. Aliquam rutrum tellus ut lobortis congue. Phasellus orci eros, porttitor nec vehicula tristique, volutpat lobortis neque. Suspendisse potenti. Vivamus porta feugiat diam, sit amet pretium sem egestas quis. Cras a justo eu augue consectetur consectetur vitae ut mi. Aenean id mi elementum, volutpat nisi non, dignissim mi.');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `admin`
 --
 
@@ -33,6 +52,13 @@ CREATE TABLE `admin` (
   `AdminLastName` varchar(30) NOT NULL,
   `AdminPasswordHash` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`AdminEmail`, `AdminFirstName`, `AdminLastName`, `AdminPasswordHash`) VALUES
+('adminemail@email.com', 'notadmin', 'totallyadmin', '$2y$10$DzCF.FWH9Jzi/XKs3/kf9O8OyZ7N8cFBQWy4ZzaZINxUx4XD0Scba');
 
 -- --------------------------------------------------------
 
@@ -47,6 +73,85 @@ CREATE TABLE `cart` (
   `ProductPrice` decimal(10,2) NOT NULL,
   `Quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`clientEmail`, `UPC`, `ProductName`, `ProductPrice`, `Quantity`) VALUES
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1),
+('sarah@gmail.com', 1, 'Product', '15.00', 1);
 
 -- --------------------------------------------------------
 
@@ -95,20 +200,27 @@ CREATE TABLE `products` (
   `ProductName` varchar(50) NOT NULL,
   `ProductDescription` varchar(255) NOT NULL,
   `ProductPrice` decimal(10,2) NOT NULL,
-  `ProductAmount` int(5) NOT NULL
+  `ProductAmount` int(5) NOT NULL,
+  `picture` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`UPC`, `ProductName`, `ProductDescription`, `ProductPrice`, `ProductAmount`) VALUES
-(1, 'Product', 'yoo', '15.00', 3),
-(2, 'AnotherOne', 'djKhaled', '150.00', 5);
+INSERT INTO `products` (`UPC`, `ProductName`, `ProductDescription`, `ProductPrice`, `ProductAmount`, `picture`) VALUES
+(1, 'Product', 'yoo', '15.00', 3, ''),
+(2, 'AnotherOne', 'djKhaled', '150.00', 5, '');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `about`
+--
+ALTER TABLE `about`
+  ADD PRIMARY KEY (`firstparagraph`);
 
 --
 -- Indexes for table `admin`

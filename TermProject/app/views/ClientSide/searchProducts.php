@@ -23,11 +23,11 @@
                     echo"<td>$result->ProductName</td>";
                     echo"<td>$result->ProductPrice</td>";
                     echo"<td>
-                    <button id='viewProduct' name='viewProoduct' class='btn btn-primary'><a href='/Home/viewProduct/$result->UPC'> View </a></button>
+                    <button id='viewProduct' name='viewProoduct' class='btn btn-primary'><a href='TermProject/Home/viewProduct/$result->UPC'> View </a></button>
                     </td>";
                     echo"<td>
                     <form method='POST'>
-                    <button id='addToCart' name='addToCart' class='btn btn-success'><a href='/Home/AddCart/$result->UPC'>Add to cart </a></button>
+                    <button id='addToCart' name='addToCart' class='btn btn-success'><a href='TermProject/Home/AddCart/$result->UPC'>Add to cart </a></button>
                     </form>
                     </td>";
                     echo"</tr>";
