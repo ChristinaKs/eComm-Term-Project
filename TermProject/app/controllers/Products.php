@@ -82,22 +82,25 @@
         public function update($UPC){
             $product = $this->productsModel->getProduct($UPC);
             if(!isset($_POST['update'])){
-                $this->view('Products/updateProduct',$UPC);
+                $this->view('Products/updateProduct',$product);
             }
-            $filename= $this->imageUpload();
-            $data=[
-                'ProductName' => trim($product->ProductName),
-                'ProductDescription' => trim($product->ProductDescription),
-                'ProductPrice' => trim($product->ProductPrice),
-                'ProductAmount' => trim($product->ProductAmount),
-                'picture' => $filename,
-                'UPC' => $UPC
-            ];
-            if($this->productsModel->updateProduct($data)){
-                echo 'Please wait we are upating the Product for you!';
-                echo '<meta http-equiv="Refresh" content="2; url=/TermProject/Products/getProducts">';
+            else{
+                $filename= $this->imageUpload();
+                $data=[
+                    'ProductName' => trim($_POST['ProductName']),
+                    'ProductDescription' => trim($_POST['ProductDescription']),
+                    'ProductPrice' => trim($_POST['ProductPrice']),
+                    'ProductAmount' => trim($_POST['ProductAmount']),
+                    'picture' => $filename,
+                    'UPC' => $UPC
+                ];
+                if($this->productsModel->updateProduct($data)){
+                    echo 'Please wait we are upating the Product for you!';
+                    echo '<meta http-equiv="Refresh" content="2; url=/TermProject/Products/getProducts">';
+                }
+                   
             }
-                
+     
         }
 
         public function delete($UPC){

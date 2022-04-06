@@ -1,5 +1,21 @@
 <?php require APPROOT . '/views/includes/header.php'; 
 ?>
+<?php
+    if (isAdminLoggedIn()) {
+        echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">';
+        echo '<div class="collapse navbar-collapse" id="navbarSupportedContent">';
+        echo '<ul class="navbar-nav mr-auto">';
+        echo '<li class="nav-item">';
+        echo '<a class="nav-link" href="/TermProject/Products/getProducts">Get Products</a>';
+        echo '</li>';
+        echo '<li class="nav-item">';
+        echo '<a class="nav-link" href="/TermProject/Products/createProduct">Create Product</a>';
+        echo '</li>';
+        echo '</ul>';
+        echo '</div>';
+        echo '</nav>';
+    }
+?>
     <form method="POST">
         <label>Search for a product:</label>
         <input type="text" id="searchBar" name="searchBar" placeholder="Search...">
