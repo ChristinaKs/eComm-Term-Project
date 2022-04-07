@@ -17,10 +17,7 @@
 ?>
 <form>
   <div class="form-group">
-  <?php
-  if (isAdminLoggedIn()) {
-    echo "<button id='editAbout' name='edit' class='btn btn-dark'>edit</button>";
-  }?>
+  
   </div>
 </form>
 <div class="about-section">
@@ -34,5 +31,9 @@
     echo "<br><br>&emsp;&emsp;";
     echo $about->thirdparagraph;
   } 
-  ?>
+  echo "<br><br>";
+  if (isAdminLoggedIn()) {
+    echo "<button id='editAbout' name='edit' class='btn btn-secondary'> <a href='/TermProject/About/editAbout' >edit </a></button>";
+  }?>
+  
 <?php require APPROOT . '/views/includes/footer.php'; ?>
