@@ -51,17 +51,19 @@ class Profile extends Controller
             $user = $this->model('profileModel')->getClient($_SESSION['ClientEmail']);
                 $data = [
                     "client_password" => $user->ClientPassword,
-                    "email" => $user->ClientEmail
+                    "email" => $user->ClientEmail,
+                    'old_password' => $_POST['oldPassword'],
+                    'new_password' => password_hash($_POST['newPassword'], PASSWORD_DEFAULT)
                 ];
-            if($_POST['oldPassword'] != $data['client_password']){
+            if(!password_verify($data['old_password'],$data['client_password'])){
                 $data = [
-                    'msg' => "Old password incorrect",
+                    'msg' => "Old password incorrect!"
                 ];
                 $this->view('Profile/updatePassword',$data);
             }else {
                 if($_POST['newPassword'] != $_POST['reEnterPassword']){
                     $data = [
-                        'msg' => "Passwords do not match",
+                        'msg' => "Passwords do not match"
                     ];
                     $this->view('Profile/updatePassword',$data);
                 }else {

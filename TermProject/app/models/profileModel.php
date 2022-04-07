@@ -44,8 +44,8 @@
 
         public function updatePassword($data){
             $this->db->query("UPDATE clients SET ClientPassword=:ClientPassword WHERE ClientEmail=:ClientEmail");
-            $this->db->bind(':ClientPassword', $data['client_password']);
-            $this->db->bind(':ClientEmail', $data['ClientEmail']);
+            $this->db->bind(':ClientPassword', $data['new_password']);
+            $this->db->bind(':ClientEmail', $data['email']);
             if($this->db->execute()){
                 return true;
             }

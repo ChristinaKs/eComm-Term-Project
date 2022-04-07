@@ -1,6 +1,8 @@
 <?php require APPROOT . '/views/includes/header.php'; 
 ?>
 
+<form class="px-4 py-3" method="post" action="">
+
 <div class="form-group">
             <h1>Update Password</h1>
         <div class="form-group">
@@ -11,7 +13,7 @@
         <label for="password">Re-enter New Password</label>
         <input type="password" class="form-control" id="reEnterPassword" name="reEnterPassword">
         </div>
-        <button type="submit" name='updatePassword' class="btn btn-primary"> <a href='/TermProject/Profile/updatePassword/' > Update</a></button>
+        <button type="submit" name='updatePassword' class="btn btn-primary"> Update</button>
     </div>
 
     <?php
