@@ -39,12 +39,12 @@
       <a class="nav-link" href="/TermProject/Cart/userCart">My cart</a>
     </li>
     <?php
-    if (isLoggedIn() || isAdminLoggedIn()) {
-      echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Login/logout"><i class="fa-solid fa-sign-out"></i> Logout </a></li>';
-    } 
     if (isLoggedIn()) {
       echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Profile/profile"><i class="fa-solid fa-profile"></i> My Profile </a></li>';
       echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Profile/profile"><i class="fa-solid fa-profile"></i> Français </a></li>';
+    } 
+    if (isLoggedIn() || isAdminLoggedIn()) {
+      echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Login/logout"><i class="fa-solid fa-sign-out"></i> Logout </a></li>';
     } 
     else {
       echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Login/Create"><i class="fa-solid fa-user-plus"></i> Sign Up</a></li>
