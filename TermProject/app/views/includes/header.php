@@ -39,6 +39,10 @@
       <a class="nav-link" href="userCart/displayCart">My cart</a>
     </li>
     <?php
+    if (isLoggedIn()) {
+      echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Profile/profile"><i class="fa-solid fa-profile"></i> My Profile </a></li>';
+      echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Profile/profile"><i class="fa-solid fa-profile"></i> Français </a></li>';
+    } 
     if (isLoggedIn() || isAdminLoggedIn()) {
       echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Login/logout"><i class="fa-solid fa-sign-out"></i> Logout </a></li>';
     } 
