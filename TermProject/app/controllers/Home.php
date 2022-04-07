@@ -63,7 +63,7 @@ class Home extends Controller
     public function AddCart($UPC){
         if(!isLoggedIn()){
             //can only start adding to cart when signed in
-            $this->view('Login/index');
+            header('Location: /TermProject/Login/');
         }else{
             $product = $this->productsModel->getProduct($UPC);
             $data=[
@@ -75,6 +75,13 @@ class Home extends Controller
             ];
 
             if($this->cartModel->addCart($data)){
+                $product = $this->productsModel->getProduct($UPC);
+                $data=[
+                    'ProductPicture' => "picture will be here",
+                    'ProductName' => $product->ProductName,
+                    'ProductPrice' => $product->ProductPrice,
+                    'Quantity' => 1
+                ];
                 $this->view('Cart/userCart',$data);
             }
         }
