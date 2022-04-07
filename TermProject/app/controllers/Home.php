@@ -75,14 +75,15 @@ class Home extends Controller
             ];
 
             if($this->cartModel->addCart($data)){
-                $product = $this->productsModel->getProduct($UPC);
+                /*$product = $this->productsModel->getProduct($UPC);
                 $data=[
                     'ProductPicture' => "picture will be here",
                     'ProductName' => $product->ProductName,
                     'ProductPrice' => $product->ProductPrice,
                     'Quantity' => 1
-                ];
-                $this->view('Cart/userCart',$data);
+                ];*/
+                $cart = $this->cartModel->displayCart($_SESSION['ClientEmail']);
+                $this->view('Cart/userCart',$cart);
             }
         }
         

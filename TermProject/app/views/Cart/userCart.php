@@ -13,13 +13,21 @@
                 <th scrop="col" colspan="2" class="text-center"> Actions</th>
             </tr>
         <tbody>
-            <tr>
                 <?php 
-                    foreach($data as $product=>$result){
-                        echo "<td>".$result."</td>";
+                    foreach($data as $product){
+                        /*echo "<pre>";
+                        var_dump($product);
+                        echo "</pre>";*/
+                        echo"<tr>";
+                        echo '<td> Picture will be here </td>';
+                        echo"<td>$product->ProductName</td>";
+                        echo"<td>$product->ProductPrice</td>";
+                        echo"<td>
+                        <button id='removeProduct' name='removeProduct' class='btn btn-danger'><a href='userCart/removeItem/$product->clientEmail,$product->UPC'> Remove Item </a></button>
+                        </td>";
+                        echo"</tr>";
                     }
                 ?>
-            </tr>
         </tbody>
     </table>
     <button id='checkout' name='checkout' class='btn btn-dark'>Checkout</button>

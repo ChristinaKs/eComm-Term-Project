@@ -24,8 +24,9 @@
         }
 
         public function removeFromCart($data){
-            $this->db->query("DELETE FROM cart WHERE UPC=:UPC");
-            $this->db->bind('UPC',$data['UPC']);
+            $this->db->query("DELETE FROM cart WHERE UPC=:UPC AND WHERE clientEmail = :clientEmail");
+            $this->db->bind(':UPC',$data['UPC']);
+            $this->db->bind(':clientEmail',$data['clientEmail']);
 
             if($this->db->execute()){
                 return true;

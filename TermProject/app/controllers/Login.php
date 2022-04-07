@@ -4,6 +4,7 @@ class Login extends Controller
     public function __construct()
     {
         $this->loginModel = $this->model('loginModel');
+        $this->productsModel = $this->model('productsModel');
     }
 
     public function index()
@@ -20,10 +21,11 @@ class Login extends Controller
                 if(password_verify($password,$hashed_pass)){
                     //echo '<meta http-equiv="Refresh" content="2; url=/MVC/">';
                     $this->createSession($user);
-                    /*$data = [
-                        'msg' => "Welcome, $user->ClientFirstName $user->ClientLastName!",
-                    ];*/
-                    $this->view('Home/home');
+                    $products = $this->productsModel->getProducts();
+                    $data = [
+                        'product' => $products
+                    ];
+                    $this->view('Home/home', $data);
                 }
                 else{
                     $data = [

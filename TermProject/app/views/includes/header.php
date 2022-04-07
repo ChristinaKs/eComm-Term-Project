@@ -37,7 +37,7 @@
   <ul class="nav navbar-nav navbar-right">
     <?php
     if (isLoggedIn()) {
-      echo '<li class="nav-item"><a class="nav-link" href="/TermProject/userCart">My cart</a></li>';
+      echo '<li class="nav-item"><a class="nav-link" href="/TermProject/userCart/displayCart">My cart</a></li>';
       echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Profile/profile"><i class="fa-solid fa-profile"></i> My Profile </a></li>';
       echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Profile/profile"><i class="fa-solid fa-profile"></i> Français </a></li>';
     } 
