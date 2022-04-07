@@ -23,30 +23,22 @@
 
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
   <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="/TermProject/Home">Home</a>
+    </li>
     <?php
-    if(!isAdminLoggedIn()){
-      echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Home">Home</a></li>';
+    //if(!isAdminLoggedIn()){
       echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Contact">Contact</a></li>';
-      echo '<li class="nav-item"><a class="nav-link" href="/TermProject/AboutUs">About Us</a></li>';
-    }else {
-      echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Products/getProducts">View Products</a></li>';
-    }
+    echo '<li class="nav-item"><a class="nav-link" href="/TermProject/About">About Us</a></li>';
+    
     ?>
   </ul>
 
   <ul class="nav navbar-nav navbar-right">
-<<<<<<< Updated upstream
-=======
     <li class="nav-item">
       <a class="nav-link" href="/TermProject/Cart/userCart">My cart</a>
     </li>
->>>>>>> Stashed changes
     <?php
-    if (isLoggedIn()) {
-      echo '<li class="nav-item"><a class="nav-link" href="/TermProject/userCart">My cart</a></li>';
-      echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Profile/profile"><i class="fa-solid fa-profile"></i> My Profile </a></li>';
-      echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Profile/profile"><i class="fa-solid fa-profile"></i> Français </a></li>';
-    } 
     if (isLoggedIn() || isAdminLoggedIn()) {
       echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Login/logout"><i class="fa-solid fa-sign-out"></i> Logout </a></li>';
     } 
