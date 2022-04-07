@@ -97,10 +97,8 @@
                 if($this->productsModel->updateProduct($data)){
                     echo 'Please wait we are upating the Product for you!';
                     echo '<meta http-equiv="Refresh" content="2; url=/TermProject/Products/getProducts">';
-                }
-                   
+                }      
             }
-     
         }
 
         public function delete($UPC){
@@ -111,9 +109,7 @@
                 echo 'Please wait we are deleting the product for you!';
                 echo '<meta http-equiv="Refresh" content=".2; url=/TermProject/Products/getProducts">';
             }
-
-        }
-        
+        }     
     }
 
 ?>
