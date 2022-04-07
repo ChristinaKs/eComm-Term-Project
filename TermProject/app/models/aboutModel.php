@@ -11,11 +11,11 @@
         }
 
         public function updateAbout($data){
-            $this->db->query("UPDATE about SET firstparagraph=:firstparagraph, secondparagraph=:secondparagraph, thirdparagraph=:thirdparagraph WHERE aboutID=:aboutid");
+            $this->db->query("UPDATE about SET firstparagraph=:firstparagraph, secondparagraph=:secondparagraph, thirdparagraph=:thirdparagraph, WHERE firstparagraph=:firstparagraph");
             $this->db->bind(':firstparagraph', $data['firstparagraph']);
             $this->db->bind(':secondparagraph', $data['secondparagraph']);
             $this->db->bind(':thirdparagraph', $data['thirdparagraph']);
-            $this->db->bind(':aboutid', '1');
+            $this->db->bind('firstparagraph',$data['firstparagraph']);
             if($this->db->execute()){
                 return true;
             }

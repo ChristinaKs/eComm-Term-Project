@@ -35,12 +35,6 @@
   </ul>
 
   <ul class="nav navbar-nav navbar-right">
-<<<<<<< Updated upstream
-=======
-    <li class="nav-item">
-      <a class="nav-link" href="/TermProject/Cart/userCart">My cart</a>
-    </li>
->>>>>>> Stashed changes
     <?php
     if (isLoggedIn()) {
       echo '<li class="nav-item"><a class="nav-link" href="/TermProject/userCart/displayCart">My cart</a></li>';

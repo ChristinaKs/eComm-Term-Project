@@ -2,17 +2,29 @@
 class userCart extends Controller{
     public function __construct()
     {
-        
+        $this->cartModel = $this->model('cartModel');
     }
 
     public function index()
     {
-        $this->view('Cart/userCart');
+        
     }
 
-    public function removeItem($UPC){
+    public function displayCart(){
+        if(!isLoggedIn()){
+            header('Location: /TermProject/Login/');
+        }else{
+            $clientEmail = $_SESSION['ClientEmail'];
+            $cart = $this->cartModel->displayCart($clientEmail);
+            $this->view('Cart/userCart',$cart);
+        }
+        
+    }
+
+    public function removeItem($clientEmail,$UPC){
         $data=[
-            'UPC'=> $UPC
+            'UPC'=> $UPC,
+            'clientEmail' => $clientEmail
         ];
 
         if($this->cartModel->removeFromCart($data)){

@@ -36,5 +36,11 @@
             }
 
         }
+
+        public function displayCart($clientEmail){
+            $this->db->query("SELECT * FROM cart WHERE clientEmail = :clientEmail");
+            $this->db->bind(':clientEmail',$clientEmail);
+            return $this->db->getResultSet();
+        }
     }
 ?>
