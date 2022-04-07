@@ -36,7 +36,7 @@
 
   <ul class="nav navbar-nav navbar-right">
     <li class="nav-item">
-      <a class="nav-link" href="/TermProject/Cart/userCart">My cart</a>
+      <a class="nav-link" href="userCart/displayCart">My cart</a>
     </li>
     <?php
     if (isLoggedIn() || isAdminLoggedIn()) {
