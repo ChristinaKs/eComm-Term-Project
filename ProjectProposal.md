@@ -13,8 +13,8 @@
 | Feature | Team member 01 | Team member 02 | Team member 03 |
 |---------|------------------|-----------------|-------------------|
 | 1 | A seller may update / edit items up for sale | A seller may mark an order as shipped | A seller may offer tracking on a shipped order |
-| 2 | A seller may add items for sale | A seller may view requests from customers | A seller may respond to customer requests |
-| 3 | A seller may remove items from the website | A seller may add pictures to showcase products | A customer may rate items in the catalogue |
+| 2 | A seller may add items for sale | A seller may view requests from customers | A seller may ban a user |
+| 3 | A seller may remove items from the website | A seller may add pictures to showcase products | The seller may view all users |
 | 4 | A seller may view the purchases | A user may have the app choose a random product for them | A user may be able to add shipping address |
 | 5 | A user may contact the seller | A user may be able to delete their account | A seller may be able to update their "about us" page |
 | 6 | A user may view details of each products | A user may be able to sign up | A user may be able to check their order history |
