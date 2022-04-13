@@ -29,8 +29,8 @@
             foreach($data["products"] as $products){
                 echo"<tr>";
                 echo '<td>
-                <div class="d-flex align-items-center"><img class="rounded-circle" src="'.URLROOT.'/public/img/'.$products->picture.'" width="30"><span class="ml-2">'.$products->ProductName.'</span></div>
-            </td>';
+                <div class="d-flex align-items-center"><img class="img-thumbnail" src="'.URLROOT.'/public/img/'.$products->picture.'" width="100" height="100"></div>
+                </td>';
                 echo"<td>$products->UPC</td>";
                 echo"<td>$products->ProductName</td>";
                 echo"<td>$products->ProductDescription</td>";
@@ -43,7 +43,6 @@
                 <a href='/TermProject/Products/delete/$products->UPC'> Delete</a>
                 </td>";
                 echo"</tr>";
-                //var_dump("products");
             }
         ?>
     </table>
