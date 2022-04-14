@@ -55,12 +55,22 @@ class Login extends Controller
                     'ClientFirstName' => trim($_POST['ClientFirstName']),
                     'ClientLastName' => trim($_POST['ClientLastName']),
                     'ClientShippingAddress' => trim($_POST['ClientShippingAddress']),
+                    'pass' => $_POST['password'],
+                    'pass_verify' => $_POST['verify_password'],
                     'ClientPassword' => password_hash($_POST['password'], PASSWORD_DEFAULT),
-                    'ClientEmail' => trim($_POST['ClientEmail'])
+                    'ClientEmail' => trim($_POST['ClientEmail']),
+                    'password_error' => '',
+                    'password_match_error' => '',
+                    'password_len_error' => '',
+                    'msg' => '',
+                    'email_error' => '',
+                    'street_address_error' => ''
                 ];
-                if($this->loginModel->createClient($data)){
-                        echo 'Please wait creating the account for you';
-                        echo '<meta http-equiv="Refresh" content="2; url=/TermProject/Login/">';
+                if($this->validateData($data)){
+                    if($this->loginModel->createClient($data)){
+                            echo 'Please wait creating the account for you';
+                            echo '<meta http-equiv="Refresh" content="2; url=/TermProject/Login/">';
+                    }
                 }
             }
             else{
@@ -70,6 +80,29 @@ class Login extends Controller
                 $this->view('Login/create',$data);
             }
             
+        }
+    }
+
+    public function validateData($data){
+        if (!filter_var($data['ClientEmail'], FILTER_VALIDATE_EMAIL)) {
+            $data['email_error'] = 'Please check your email and try again';
+        }
+        if(strlen($data['pass']) < 6){
+            $data['password_len_error'] = 'Password can not be less than 6 characters';
+        }
+        if($data['pass'] != $data['pass_verify']){
+            $data['password_match_error'] = 'Passwords do not match';
+        }
+
+        if(!(preg_match('^(?!.*[DFIOQU].*)([A-Z][0-9]){3}$^', trim('ClientShippingAddress')))){
+            $data['street_address_error'] = "This street is invalid, insert #, Street name, City, Province, Zip Code.";
+        }
+
+        if(empty($data['password_len_error']) && empty($data['password_match_error']) && empty($data['email_error'])){
+            return true;
+        }
+        else{
+            $this->view('Login/create',$data);
         }
     }
 
