@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2022 at 09:17 PM
+-- Generation Time: Apr 18, 2022 at 06:26 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -67,91 +67,13 @@ INSERT INTO `admin` (`AdminEmail`, `AdminFirstName`, `AdminLastName`, `AdminPass
 --
 
 CREATE TABLE `cart` (
+  `item_id` int(11) NOT NULL,
   `clientEmail` varchar(150) NOT NULL,
   `UPC` int(11) NOT NULL,
   `ProductName` varchar(50) NOT NULL,
   `ProductPrice` decimal(10,2) NOT NULL,
   `Quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`clientEmail`, `UPC`, `ProductName`, `ProductPrice`, `Quantity`) VALUES
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 2, 'AnotherOne', '150.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1),
-('sarah@gmail.com', 1, 'Product', '15.00', 1);
 
 -- --------------------------------------------------------
 
@@ -232,6 +154,7 @@ ALTER TABLE `admin`
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
+  ADD PRIMARY KEY (`item_id`),
   ADD KEY `cart_clientEmail_FK` (`clientEmail`),
   ADD KEY `cart_UPC_FK` (`UPC`);
 
@@ -256,6 +179,12 @@ ALTER TABLE `products`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `orders`

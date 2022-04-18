@@ -15,15 +15,13 @@
         <tbody>
                 <?php 
                     foreach($data as $product){
-                        /*echo "<pre>";
-                        var_dump($product);
-                        echo "</pre>";*/
                         echo"<tr>";
                         echo '<td> Picture will be here </td>';
                         echo"<td>$product->ProductName</td>";
                         echo"<td>$product->ProductPrice</td>";
+                        echo"<td>Quantity will be here</td>";
                         echo"<td>
-                        <button id='removeProduct' name='removeProduct' class='btn btn-danger'><a href='userCart/removeItem/$product->clientEmail,$product->UPC'> Remove Item </a></button>
+                        <button id='removeProduct' name='removeProduct' class='btn btn-danger'><a href='/TermProject/userCart/removeItem/$product->item_id'> Remove Item </a></button>
                         </td>";
                         echo"</tr>";
                     }

@@ -21,15 +21,14 @@ class userCart extends Controller{
         
     }
 
-    public function removeItem($clientEmail,$UPC){
+    public function removeItem($itemID){
         $data=[
-            'UPC'=> $UPC,
-            'clientEmail' => $clientEmail
+            'item_id'=> $itemID
         ];
 
         if($this->cartModel->removeFromCart($data)){
-            echo 'Please wait we are upating the user for you!';
-            echo '<meta http-equiv="Refresh" content="2; url=/TermProject/userCart">';
+            echo 'We are deleting the item for you!';
+            echo '<meta http-equiv="Refresh" content="1; url=/TermProject/userCart/displayCart">';
         }
     }
 }
