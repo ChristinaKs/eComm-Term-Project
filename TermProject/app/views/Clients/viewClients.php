@@ -17,36 +17,32 @@
   </div>
 </nav>
 
-    <h1>Get Products View</h1>
+    <h1>View Clients</h1>
     <table  class="table table-bordered">
         <tr>
-            <td>Image</td>
-            <td>UPC</td>
-            <td>Product Name</td>
-            <td>Description</td>
-            <td>Price</td>
-            <td>Quantity Available</td>
+            <td>Client Email</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Shipping Address</td>
             <td colspan="3" class="text-center"> Actions</td>
         </tr>
         <?php
-            foreach($data["products"] as $products){
+        if ($data["clients"] != null) {
+            foreach($data["clients"] as $clients){
                 echo"<tr>";
-                echo '<td>
-                <div class="d-flex align-items-center"><img class="img-thumbnail" src="'.URLROOT.'/public/img/'.$products->picture.'" width="100" height="100"></div>
-                </td>';
-                echo"<td>$products->UPC</td>";
-                echo"<td>$products->ProductName</td>";
-                echo"<td>$products->ProductDescription</td>";
-                echo"<td>$products->ProductPrice</td>";
-                echo"<td>$products->ProductAmount</td>";
+                echo"<td>$clients->ClientEmail</td>";
+                echo"<td>$clients->ClientFirstName</td>";
+                echo"<td>$clients->ClientLastName</td>";
+                echo"<td>$clients->ClientShippingAddress</td>";
                 echo"<td>
-                <a href='/TermProject/Products/update/$products->UPC'> Update</a>
-                </td>";
-                echo"<td>
-                <a href='/TermProject/Products/delete/$products->UPC'> Delete</a>
+                <a href='/TermProject/Clients/delete/$clients->ClientEmail'> Ban</a>
                 </td>";
                 echo"</tr>";
             }
+        }else {
+                echo"Apparently, there are no clients for the moment";
+            }
+        
         ?>
     </table>
 

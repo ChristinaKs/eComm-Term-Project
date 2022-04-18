@@ -94,11 +94,11 @@ class Login extends Controller
             $data['password_match_error'] = 'Passwords do not match';
         }
 
-        if(!(preg_match('^(?!.*[DFIOQU].*)([A-Z][0-9]){3}$^', trim('ClientShippingAddress')))){
+        if(!(preg_match(trim('/\d+.*?[A-z]+.[A-z]+..[A-z]+..[A-z]+..[A-Z]\d[A-Z].\d[A-Z]\d/ '), trim('ClientShippingAddress')))){
             $data['street_address_error'] = "This street is invalid, insert #, Street name, City, Province, Zip Code.";
         }
 
-        if(empty($data['password_len_error']) && empty($data['password_match_error']) && empty($data['email_error'])){
+        if(empty($data['password_len_error']) && empty($data['password_match_error']) && empty($data['email_error']) /*&& empty($data['street_address_error'])*/){
             return true;
         }
         else{

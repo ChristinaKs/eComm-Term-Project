@@ -11,6 +11,11 @@
             return $this->db->getSingle();
         }
 
+        public function getClients(){
+            $this->db->query("SELECT * FROM clients");
+            return $this->db->getResultSet();
+        }
+
         public function createClient($data){
             $this->db->query("INSERT INTO clients (ClientFirstName, ClientLastName, ClientShippingAddress, ClientEmail, ClientPassword) values (:ClientFirstName,
                         :ClientLastName, :ClientShippingAddress, :ClientEmail, :ClientPassword)");
@@ -26,7 +31,6 @@
             else{
                 return false;
             }
-
         }
     }
 ?>

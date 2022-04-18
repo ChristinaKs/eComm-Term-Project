@@ -10,6 +10,9 @@
       <li class="nav-item">
         <a class="nav-link" href="/TermProject/Products/createProduct">Create Product</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/TermProject/Clients/viewClients">View Clients</a>
+        </li>
     </ul>
   </div>
 </nav>

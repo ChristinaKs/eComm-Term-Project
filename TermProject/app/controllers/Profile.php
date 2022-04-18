@@ -36,10 +36,11 @@ class Profile extends Controller
                 "last_name" => trim($_POST['lastNameInput']),
                 "address" => trim($_POST['shippingAddressInput'])
             ];
-           
-            if($this->model('profileModel')->updateClient($data)){
-                echo 'Please wait we are updating the profile for you!';
-                echo '<meta http-equiv="Refresh" content="2; url=/TermProject/Profile/">';
+            if($this->validateData($data)){
+                if($this->model('profileModel')->updateClient($data)){
+                    echo 'Please wait we are updating the profile for you!';
+                    echo '<meta http-equiv="Refresh" content="2; url=/TermProject/Profile/">';
+                }
             }
         }
     }
@@ -66,6 +67,11 @@ class Profile extends Controller
                         'msg' => "Passwords do not match"
                     ];
                     $this->view('Profile/updatePassword',$data);
+                }if($_POST['newPassword'] == $data['old_password']){
+                    $data = [
+                        'msg' => "New password cannot be the same as old password"
+                    ];
+                    $this->view('Profile/updatePassword',$data);
                 }else {
                     if($this->model('profileModel')->updatePassword($data)){
                         echo 'Please wait we are updating the password for you!';
@@ -84,6 +90,18 @@ class Profile extends Controller
                 session_destroy();
                 echo '<meta http-equiv="Refresh" content=".2; url=/TermProject/Login">';
            }
+        }
+    }
+
+    public function validateData($data){
+        if(!(preg_match('^(?!.*[DFIOQU].*)([A-Z][0-9]){3}$', trim($_POST['shippingAddressInput'])))){
+            $data['street_address_error'] = "This street is invalid. Insert:  #, Street name, City, Province, Zip Code.";
+        }
+        if(empty($data['street_address_error'])){
+            return true;
+        }
+        else{
+            $this->view('Profile/updateProfile',$data);
         }
     }
 

@@ -10,6 +10,10 @@
         echo '<li class="nav-item">';
         echo '<a class="nav-link" href="/TermProject/Products/createProduct">Create Product</a>';
         echo '</li>';
+        echo '</li>';
+        echo '<li class="nav-item">';
+        echo '<a class="nav-link" href="/TermProject/Clients/viewClients">View Clients</a>';
+        echo '</li>';
         echo '</ul>';
         echo '</div>';
         echo '</nav>';
