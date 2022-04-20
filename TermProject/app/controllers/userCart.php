@@ -31,6 +31,15 @@ class userCart extends Controller{
             echo '<meta http-equiv="Refresh" content="1; url=/TermProject/userCart/displayCart">';
         }
     }
+
+    public function changeQuantity($item_id){
+        $data=[
+            //'Quantity'=> /*get value from view*/
+            'item_id'=> $item_id
+        ];
+
+        $this->cartModel->updateQuantity($data);
+    }
 }
     
 

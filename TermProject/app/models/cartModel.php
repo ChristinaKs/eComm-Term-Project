@@ -41,5 +41,18 @@
             $this->db->bind(':clientEmail',$clientEmail);
             return $this->db->getResultSet();
         }
+
+        public function updateQuantity($data){
+            $this->db->query("UPDATE cart SET Quantity=:Quantity WHERE item_id=:item_id");
+            $this->db->bind(':Quantity', $data['Quantity']);
+            $this->db->bind(':item_id',$data['item_id']);
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+
+        }
     }
 ?>
