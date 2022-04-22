@@ -19,6 +19,7 @@
         echo '</nav>';
     }
 ?>
+
     <form method="POST">
         <label>Search for a product:</label>
         <input type="text" id="searchBar" name="searchBar" placeholder="Search...">
@@ -47,7 +48,7 @@
                     echo"<td>$product->ProductName</td>";
                     echo"<td>$product->ProductPrice</td>";
                     echo"<td>
-                    <button id='viewProduct' name='viewProoduct' class='btn btn-primary'><a href='Home/viewProduct/$product->UPC'> View </a></button>
+                    <button id='viewProduct' name='viewProduct' class='btn btn-primary'><a href='Home/viewProduct/$product->UPC'> View </a></button>
                     </td>";
                     echo"<td>
                     <form method='POST'>

@@ -32,13 +32,37 @@ class userCart extends Controller{
         }
     }
 
-    public function changeQuantity($item_id){
+    /*public function changeQuantity($item_id){
         $data=[
-            //'Quantity'=> /*get value from view*/
+            'Quantity'=> $_POST['quantity'],
             'item_id'=> $item_id
         ];
 
         $this->cartModel->updateQuantity($data);
+    }*/
+    public function addQuantity($item_id){
+        $quantity = $this->cartModel->getQuantity($item_id);
+        $temp= $quantity->Quantity;
+        $quantityVal = intval( $temp );
+        $data=[
+            'Quantity'=> ++$quantityVal,
+            'item_id'=> $item_id
+        ];
+        if($this->cartModel->updateQuantity($data)){
+            echo '<meta http-equiv="Refresh" content="1; url=/TermProject/userCart/displayCart">';
+        }
+    }
+    public function decreaseQuantity($item_id){
+        $quantity = $this->cartModel->getQuantity($item_id);
+        $temp= $quantity->Quantity;
+        $quantityVal = intval($temp);
+        $data=[
+            'Quantity'=> --$quantityVal,
+            'item_id'=> $item_id
+        ];
+        if($this->cartModel->updateQuantity($data)){
+            echo '<meta http-equiv="Refresh" content="1; url=/TermProject/userCart/displayCart">';
+        }
     }
 }
     

@@ -19,7 +19,11 @@
                         echo '<td> Picture will be here </td>';
                         echo"<td>$product->ProductName</td>";
                         echo"<td>$product->ProductPrice</td>";
-                        echo"<td><input name='quantity' onchange='/TermProject/userCart/changeQuantity/$product->item_id' class='text-center' type='number' value=".$product->Quantity." min=1></td>";
+                        echo"<td><form method='POST'>
+                            <button id='addQuantity' name='addQuantity' class='btn btn-dark'><a href='/TermProject/userCart/addQuantity/$product->item_id'> + </a></button>
+                            <label name='quantityValue'>".$product->Quantity."</label>
+                            <button id='decreaseQuantity' name='decreaseQuantity' class='btn btn-dark'><a href='/TermProject/userCart/decreaseQuantity/$product->item_id'> - </a></button>
+                            </form></td>";
                         echo"<td>
                         <button id='removeProduct' name='removeProduct' class='btn btn-danger'><a href='/TermProject/userCart/removeItem/$product->item_id'> Remove Item </a></button>
                         </td>";

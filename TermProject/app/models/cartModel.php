@@ -23,6 +23,11 @@
 
         }
 
+        public function getQuantity($item_id){
+            $this->db->query("SELECT Quantity FROM cart WHERE item_id = :item_id");
+            $this->db->bind(':item_id',$item_id);
+            return $this->db->getSingle();
+        }
         public function removeFromCart($data){
             $this->db->query("DELETE FROM cart WHERE item_id=:item_id");
             $this->db->bind(':item_id',$data['item_id']);
