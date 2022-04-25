@@ -8,7 +8,7 @@
         public function getCards($ClientEmail){
             $this->db->query("SELECT * FROM cards WHERE ClientEmail = :ClientEmail");
             $this->db->bind(':ClientEmail',$ClientEmail);
-            return $this->db->getSingle();
+            return $this->db->getResultSet();
         }
 
         public function addCard($data){

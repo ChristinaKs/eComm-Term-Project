@@ -42,7 +42,7 @@
         public function delete($CardId){
                if($this->model('cardsModel')->delete($CardId)){
                 $data = [
-                    "cards" => $this->model('cardsModel')->getCards()
+                    "cards" => $this->model('cardsModel')->getCards($_SESSION['ClientEmail'])
                 ];
                 $this->view('Cards/viewCards',$data);
                }

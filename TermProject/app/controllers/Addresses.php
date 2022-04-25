@@ -41,7 +41,7 @@
         public function delete($AddressId){
                if($this->model('addressesModel')->delete($AddressId)){
                 $data = [
-                    "addresses" => $this->model('addressesModel')->getAddresses()
+                    "addresses" => $this->model('addressesModel')->getAddresses($_SESSION['ClientEmail'])
                 ];
                 $this->view('Addresses/viewAddresses',$data);
                }

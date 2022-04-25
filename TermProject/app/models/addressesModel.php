@@ -8,7 +8,7 @@
         public function getAddresses($ClientEmail){
             $this->db->query("SELECT * FROM addresses WHERE ClientEmail = :ClientEmail");
             $this->db->bind(':ClientEmail',$ClientEmail);
-            return $this->db->getSingle();
+            return $this->db->getResultSet();
         }
 
         public function addAddress($data){

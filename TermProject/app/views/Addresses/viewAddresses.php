@@ -12,15 +12,16 @@
             foreach($data["addresses"] as $addresses){
                 
                 echo"<tr>";
-                echo"<td>$addresses->CardName</td>";
+                echo"<td>$addresses->Address</td>";
                 echo"<td>
-                <a href='/TermProject/Addresses/delete/$addresses->CardId'> Remove</a>
+                <a href='/TermProject/Addresses/delete/$addresses->AddressId'> Remove</a>
                 </td>";
                 echo"</tr>";
             }
         }else {
-                echo"Apparently, you have not added any card yet!";
+                echo"Apparently, you have not added any address yet!";
             }
+            //var_dump($_SESSION);
             echo '<a class="nav-link" href="/TermProject/Addresses/addAddress"><i class="fa-solid fa-profile"></i> Add an address </a></li>';
         ?>
     </table>
