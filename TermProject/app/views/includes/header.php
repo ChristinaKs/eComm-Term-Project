@@ -42,6 +42,8 @@
     if (isLoggedIn()) {
       echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Profile/profile"><i class="fa-solid fa-profile"></i> My Profile </a></li>';
       echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Profile/profile"><i class="fa-solid fa-profile"></i> Français </a></li>';
+      echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Cards/viewCards"><i class="fa-solid fa-profile"></i> My cards </a></li>';
+      echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Addresses/viewAddresses"><i class="fa-solid fa-profile"></i> My addresses </a></li>';
     } 
     if (isLoggedIn() || isAdminLoggedIn()) {
       echo '<li class="nav-item"><a class="nav-link" href="/TermProject/Login/logout"><i class="fa-solid fa-sign-out"></i> Logout </a></li>';

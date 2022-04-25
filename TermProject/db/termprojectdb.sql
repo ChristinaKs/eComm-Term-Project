@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2022 at 06:26 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- Generation Time: Apr 25, 2022 at 04:03 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,6 +43,25 @@ INSERT INTO `about` (`firstparagraph`, `secondparagraph`, `thirdparagraph`) VALU
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `addresses`
+--
+
+CREATE TABLE `addresses` (
+  `AddressId` int(11) NOT NULL,
+  `Address` text NOT NULL,
+  `ClientEmail` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `addresses`
+--
+
+INSERT INTO `addresses` (`AddressId`, `Address`, `ClientEmail`) VALUES
+(1, 'dddgwthbtb', 'raigorodskyi@gmail.com');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `admin`
 --
 
@@ -59,6 +78,27 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`AdminEmail`, `AdminFirstName`, `AdminLastName`, `AdminPasswordHash`) VALUES
 ('adminemail@email.com', 'notadmin', 'totallyadmin', '$2y$10$DzCF.FWH9Jzi/XKs3/kf9O8OyZ7N8cFBQWy4ZzaZINxUx4XD0Scba');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cards`
+--
+
+CREATE TABLE `cards` (
+  `CardId` int(11) NOT NULL,
+  `CardNumber` varchar(16) NOT NULL,
+  `CardName` varchar(150) NOT NULL,
+  `ClientEmail` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cards`
+--
+
+INSERT INTO `cards` (`CardId`, `CardNumber`, `CardName`, `ClientEmail`) VALUES
+(1, '1234567812345678', 'Ol VDJ', 'raigorodskyi@gmail.com'),
+(2, '9876543219876543', 'trrh hg', 'raigorodskyi@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -94,6 +134,7 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`ClientEmail`, `ClientFirstName`, `ClientLastName`, `ClientShippingAddress`, `ClientPassword`) VALUES
+('raigorodskyi@gmail.com', 'Igor', 'Raigorodskiy', '37, rue d\'Orléans', '$2y$10$A7bIiQE/hgDHeP.GAd849O.B8TZM5iN2ZbkDMKrw3nOMGj3KYLise'),
 ('sarah@gmail.com', 'sarah', 'tester', '1234 testing route', '$2y$10$DzCF.FWH9Jzi/XKs3/kf9O8OyZ7N8cFBQWy4ZzaZINxUx4XD0Scba');
 
 -- --------------------------------------------------------
@@ -145,10 +186,24 @@ ALTER TABLE `about`
   ADD PRIMARY KEY (`firstparagraph`);
 
 --
+-- Indexes for table `addresses`
+--
+ALTER TABLE `addresses`
+  ADD PRIMARY KEY (`AddressId`),
+  ADD KEY `ClientEmail` (`ClientEmail`);
+
+--
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`AdminEmail`);
+
+--
+-- Indexes for table `cards`
+--
+ALTER TABLE `cards`
+  ADD PRIMARY KEY (`CardId`),
+  ADD KEY `ClientEmail` (`ClientEmail`);
 
 --
 -- Indexes for table `cart`
@@ -181,6 +236,18 @@ ALTER TABLE `products`
 --
 
 --
+-- AUTO_INCREMENT for table `addresses`
+--
+ALTER TABLE `addresses`
+  MODIFY `AddressId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `cards`
+--
+ALTER TABLE `cards`
+  MODIFY `CardId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
@@ -201,6 +268,18 @@ ALTER TABLE `products`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `addresses`
+--
+ALTER TABLE `addresses`
+  ADD CONSTRAINT `addresses_ibfk_1` FOREIGN KEY (`ClientEmail`) REFERENCES `clients` (`ClientEmail`);
+
+--
+-- Constraints for table `cards`
+--
+ALTER TABLE `cards`
+  ADD CONSTRAINT `cards_ibfk_1` FOREIGN KEY (`ClientEmail`) REFERENCES `clients` (`ClientEmail`);
 
 --
 -- Constraints for table `cart`
