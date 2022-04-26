@@ -16,7 +16,9 @@
                 <?php 
                     foreach($data as $product){
                         echo"<tr>";
-                        echo '<td> Picture will be here </td>';
+                        echo '<td>
+                            <div class="d-flex align-items-center"><img class="img-thumbnail" src="'.URLROOT.'/public/img/'.$product->picture.'" width="100" height="100"></div>
+                            </td>';
                         echo"<td>$product->ProductName</td>";
                         echo"<td>$product->ProductPrice</td>";
                         echo"<td><form method='POST'>

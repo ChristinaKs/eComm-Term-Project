@@ -19,12 +19,12 @@
         echo '</nav>';
     }
 ?>
-<form>
+<!-- <form>
   <div class="form-group">
   
   </div>
-</form>
-<div class="about-section">
+</form> -->
+<div class="about-section" style="background-color: white;">
   <h1>About Us Page</h1>
   <?php
   foreach($data["about"] as $about){

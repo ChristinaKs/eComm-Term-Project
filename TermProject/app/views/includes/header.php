@@ -14,11 +14,20 @@
   <title><?php echo SITENAME; ?></title>
 </head>
 
-<body>
+<body style="background-color: #09B07B;">
 
-  <div class="container">
+<nav class="navbar navbar-expand-lg" style="background-color: #003314; ">
+  <div class="image" style="display: block; margin: 0 auto;">
+    <?php
+      echo '<img src="'.URLROOT.'/public/img/Logo.png" width="250" height="250"></img>';
+    ?>
+  </div>
+</nav>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <div class="container" >
+
+  <nav class="navbar navbar-expand-lg navbar-light" style="font-family: cursive; background-color: #078A60;">
 
 
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
