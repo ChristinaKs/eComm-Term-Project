@@ -10,7 +10,9 @@
                     <h5 class="text-uppercase mb-0"><?php echo $data->ProductPrice?></h5>
                 </div>
             </div>
-            <div class="image"> <img src="https://i.imgur.com/MGorDUi.png" width="500"> </div>
+            <?php
+                echo'<div class="image"><img src="'.URLROOT.'/public/img/'.$data->picture.'" width="500" height="500"></div>'
+            ?>
         </div>
         <p><?php echo $data->ProductDescription?></p> 
         <button id='addToCart' name='addToCart' class='btn btn-success'><?php echo "<a href='/TermProject/Home/AddCart/$data->UPC'>Add to cart </a>"?></button>
