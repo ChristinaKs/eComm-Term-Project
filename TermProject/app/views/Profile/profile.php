@@ -24,9 +24,36 @@
     </div>
     <div><button style="background-color:green" type='submit' name='updateClient' class='btn btn-primary'> <a href='/TermProject/Profile/update'> <?=_("Update Info")?> </a> </button>
     <button style="background-color:green" type="submit" name='changePassword' class="btn btn-primary"><a href='/TermProject/Profile/updatePassword'><?=_("Change password")?></button>
-    <button style="background-color:green" type="submit" name='deleteProfile' class="btn btn-primary"><a href='/TermProject/Profile/delete'><?=_("Delete account")?></button></div>
-
+    <button style="background-color:green" type="submit" name='deleteProfile' class="btn btn-primary"><a href='/TermProject/Profile/delete'><?=_("Delete account")?></button>
+    </div>
   </form>   
-
-   
+  <br>
+  <h2>Order History</h2>
+  <br>
+  <?php foreach($data2 as $order) {?>
+      <table class="table">
+        <thead class="table-light">
+        </thead>
+        <h4>Date of order: <?= $order->OrderDate?></h4>
+        <h5>Status: <?= $order->OrderStatus?> </h5>
+            <tr>
+                <th scope="col">Product Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Unit Price</th>
+            </tr>
+        <tbody>
+            <?php 
+                var_dump($data3);
+                foreach($data3 as $orderDetail){
+                    echo"<tr>";
+                    echo"<td>$orderDetail->ProductName</td>";
+                    echo"<td>$orderDetail->Quantity</td>";
+                    echo"<td>$orderDetail->ProductPrice</td>";
+                    echo"</tr>";
+                }
+        
+            ?>
+        </tbody>
+    </table>
+  <?php }?>
 <?php require APPROOT . '/views/includes/footer.php'; ?>

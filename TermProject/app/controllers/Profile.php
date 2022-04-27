@@ -4,6 +4,8 @@ class Profile extends Controller
     public function __construct()
     {
         $this->db = new Model;
+        $this->orderModel = $this->model('orderModel');
+        $this->orderDetailModel = $this->model('orderDetailModel');
     }
 
     public function index()
@@ -15,7 +17,16 @@ class Profile extends Controller
             "address" => $user->ClientShippingAddress,
             "email" => $user->ClientEmail
         ];
-        $this->view('Profile/profile', $data);
+
+        //displaying order and order status
+        $clientEmail = $_SESSION['ClientEmail'];
+        $order = $this->orderModel->getOrdersByClientEmail($clientEmail);
+        /*var_dump($order);
+        print $order->OrderId;*/
+        $orderId = $order->OrderId;
+        $orderDetails = $this->orderDetailModel->getOrdersByOrderId($orderId);
+        //var_dump($orderDetails);
+        $this->view('Profile/profile', $data, $order, $orderDetails);
     }
 
     public function update(){

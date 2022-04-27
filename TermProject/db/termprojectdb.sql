@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2022 at 08:46 AM
+-- Generation Time: Apr 27, 2022 at 09:37 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -57,8 +57,7 @@ CREATE TABLE `addresses` (
 --
 
 INSERT INTO `addresses` (`AddressId`, `Address`, `ClientEmail`) VALUES
-(1, 'dddgwthbtb', 'raigorodskyi@gmail.com'),
-(2, '34554', 'sarah@gmail.com');
+(1, 'dddgwthbtb', 'raigorodskyi@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -99,9 +98,7 @@ CREATE TABLE `cards` (
 
 INSERT INTO `cards` (`CardId`, `CardNumber`, `CardName`, `ClientEmail`) VALUES
 (1, '1234567812345678', 'Ol VDJ', 'raigorodskyi@gmail.com'),
-(2, '9876543219876543', 'trrh hg', 'raigorodskyi@gmail.com'),
-(3, '4567898765432', 'me', 'sarah@gmail.com'),
-(4, '12345676542', 'notme', 'sarah@gmail.com');
+(2, '9876543219876543', 'trrh hg', 'raigorodskyi@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -163,6 +160,13 @@ CREATE TABLE `orders` (
   `OrderDate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`OrderId`, `OrderStatus`, `OrderTotalPrice`, `ClientEmail`, `OrderDate`) VALUES
+(1, 'Shipped', '45.00', 'sarah@gmail.com', '2022-04-27 07:20:58');
+
 -- --------------------------------------------------------
 
 --
@@ -173,9 +177,17 @@ CREATE TABLE `order_detail` (
   `order_item_id` int(11) NOT NULL,
   `orderId` int(11) NOT NULL,
   `UPC` int(11) NOT NULL,
+  `ProductName` varchar(50) NOT NULL,
   `Quantity` int(11) NOT NULL,
   `unitPrice` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `order_detail`
+--
+
+INSERT INTO `order_detail` (`order_item_id`, `orderId`, `UPC`, `ProductName`, `Quantity`, `unitPrice`) VALUES
+(1, 1, 2, 'AnotherOne', 2, 150);
 
 -- --------------------------------------------------------
 
@@ -255,6 +267,7 @@ ALTER TABLE `orders`
 -- Indexes for table `order_detail`
 --
 ALTER TABLE `order_detail`
+  ADD PRIMARY KEY (`order_item_id`),
   ADD KEY `orderId_fk` (`orderId`),
   ADD KEY `UPC_fk` (`UPC`);
 
@@ -290,7 +303,13 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `OrderId` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `OrderId` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `order_detail`
+--
+ALTER TABLE `order_detail`
+  MODIFY `order_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `products`
