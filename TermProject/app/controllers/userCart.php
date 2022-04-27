@@ -3,6 +3,8 @@ class userCart extends Controller{
     public function __construct()
     {
         $this->cartModel = $this->model('cartModel');
+        $this->cardModel = $this->model('cardsModel');
+        $this->addressModel = $this->model('addressesModel');
     }
 
     public function index()
@@ -31,15 +33,6 @@ class userCart extends Controller{
             echo '<meta http-equiv="Refresh" content="1; url=/TermProject/userCart/displayCart">';
         }
     }
-
-    /*public function changeQuantity($item_id){
-        $data=[
-            'Quantity'=> $_POST['quantity'],
-            'item_id'=> $item_id
-        ];
-
-        $this->cartModel->updateQuantity($data);
-    }*/
     public function addQuantity($item_id){
         $quantity = $this->cartModel->getQuantity($item_id);
         $temp= $quantity->Quantity;
@@ -63,6 +56,17 @@ class userCart extends Controller{
         if($this->cartModel->updateQuantity($data)){
             echo '<meta http-equiv="Refresh" content="1; url=/TermProject/userCart/displayCart">';
         }
+    }
+
+    public function confirmOrder(){
+        $clientEmail = $_SESSION['ClientEmail'];
+        $cart = $this->cartModel->displayCart($clientEmail);
+        //get card
+        $card = $this->cardModel->getCards($clientEmail);
+        //get address
+        $address = $this->addressModel->getAddresses($clientEmail);
+        //pass it onto the view
+        $this->view('processOrder/confirmOrder',$cart,$card,$address);
     }
 }
     

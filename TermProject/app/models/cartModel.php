@@ -40,7 +40,17 @@
             }
 
         }
+        public function removeFromCartByClient($clientEmail){
+            $this->db->query("DELETE FROM cart WHERE clientEmail=:clientEmail");
+            $this->db->bind(':clientEmail',$clientEmail);
 
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
         public function displayCart($clientEmail){
             $this->db->query("SELECT * FROM cart WHERE clientEmail = :clientEmail");
             $this->db->bind(':clientEmail',$clientEmail);

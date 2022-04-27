@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2022 at 04:03 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+-- Generation Time: Apr 27, 2022 at 08:46 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -57,7 +57,8 @@ CREATE TABLE `addresses` (
 --
 
 INSERT INTO `addresses` (`AddressId`, `Address`, `ClientEmail`) VALUES
-(1, 'dddgwthbtb', 'raigorodskyi@gmail.com');
+(1, 'dddgwthbtb', 'raigorodskyi@gmail.com'),
+(2, '34554', 'sarah@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -98,7 +99,9 @@ CREATE TABLE `cards` (
 
 INSERT INTO `cards` (`CardId`, `CardNumber`, `CardName`, `ClientEmail`) VALUES
 (1, '1234567812345678', 'Ol VDJ', 'raigorodskyi@gmail.com'),
-(2, '9876543219876543', 'trrh hg', 'raigorodskyi@gmail.com');
+(2, '9876543219876543', 'trrh hg', 'raigorodskyi@gmail.com'),
+(3, '4567898765432', 'me', 'sarah@gmail.com'),
+(4, '12345676542', 'notme', 'sarah@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -112,8 +115,17 @@ CREATE TABLE `cart` (
   `UPC` int(11) NOT NULL,
   `ProductName` varchar(50) NOT NULL,
   `ProductPrice` decimal(10,2) NOT NULL,
-  `Quantity` int(11) NOT NULL
+  `Quantity` int(11) NOT NULL,
+  `picture` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`item_id`, `clientEmail`, `UPC`, `ProductName`, `ProductPrice`, `Quantity`, `picture`) VALUES
+(76, 'sarah@gmail.com', 1, 'Product', '15.00', 2, ''),
+(77, 'sarah@gmail.com', 1, 'Product', '15.00', 1, '');
 
 -- --------------------------------------------------------
 
@@ -146,10 +158,23 @@ INSERT INTO `clients` (`ClientEmail`, `ClientFirstName`, `ClientLastName`, `Clie
 CREATE TABLE `orders` (
   `OrderId` int(4) NOT NULL,
   `OrderStatus` varchar(50) NOT NULL,
-  `UPC` int(13) NOT NULL,
   `OrderTotalPrice` decimal(10,2) NOT NULL,
   `ClientEmail` varchar(150) NOT NULL,
   `OrderDate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_detail`
+--
+
+CREATE TABLE `order_detail` (
+  `order_item_id` int(11) NOT NULL,
+  `orderId` int(11) NOT NULL,
+  `UPC` int(11) NOT NULL,
+  `Quantity` int(11) NOT NULL,
+  `unitPrice` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -223,7 +248,15 @@ ALTER TABLE `clients`
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`OrderId`);
+  ADD PRIMARY KEY (`OrderId`),
+  ADD KEY `clientEmail_fk` (`ClientEmail`);
+
+--
+-- Indexes for table `order_detail`
+--
+ALTER TABLE `order_detail`
+  ADD KEY `orderId_fk` (`orderId`),
+  ADD KEY `UPC_fk` (`UPC`);
 
 --
 -- Indexes for table `products`
@@ -239,19 +272,19 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `addresses`
 --
 ALTER TABLE `addresses`
-  MODIFY `AddressId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `AddressId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `cards`
 --
 ALTER TABLE `cards`
-  MODIFY `CardId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `CardId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -287,6 +320,19 @@ ALTER TABLE `cards`
 ALTER TABLE `cart`
   ADD CONSTRAINT `cart_UPC_FK` FOREIGN KEY (`UPC`) REFERENCES `products` (`UPC`),
   ADD CONSTRAINT `cart_clientEmail_FK` FOREIGN KEY (`clientEmail`) REFERENCES `clients` (`ClientEmail`);
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `clientEmail_fk` FOREIGN KEY (`ClientEmail`) REFERENCES `clients` (`ClientEmail`);
+
+--
+-- Constraints for table `order_detail`
+--
+ALTER TABLE `order_detail`
+  ADD CONSTRAINT `UPC_fk` FOREIGN KEY (`UPC`) REFERENCES `products` (`UPC`),
+  ADD CONSTRAINT `orderId_fk` FOREIGN KEY (`orderId`) REFERENCES `orders` (`OrderId`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

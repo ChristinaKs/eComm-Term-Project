@@ -71,17 +71,11 @@ class Home extends Controller
                 'UPC' => $product->UPC,
                 'ProductName' => $product->ProductName,
                 'ProductPrice' => $product->ProductPrice,
-                'Quantity' => 1
+                'Quantity' => 1,
+                'picture' => $product->picture
             ];
 
             if($this->cartModel->addCart($data)){
-                /*$product = $this->productsModel->getProduct($UPC);
-                $data=[
-                    'ProductPicture' => "picture will be here",
-                    'ProductName' => $product->ProductName,
-                    'ProductPrice' => $product->ProductPrice,
-                    'Quantity' => 1
-                ];*/
                 $cart = $this->cartModel->displayCart($_SESSION['ClientEmail']);
                 $this->view('Cart/userCart',$cart);
             }
