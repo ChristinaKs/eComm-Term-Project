@@ -35,5 +35,17 @@
                 return false;
             }
         }
+
+        public function deleteClientAddresses($ClientEmail){
+            $this->db->query("DELETE FROM addresses WHERE ClientEmail = :ClientEmail");
+            $this->db->bind('ClientEmail',$ClientEmail);
+
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
     }
 ?>

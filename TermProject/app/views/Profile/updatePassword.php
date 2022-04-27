@@ -13,7 +13,7 @@
         <label for="password">Re-enter New Password</label>
         <input type="password" class="form-control" id="reEnterPassword" name="reEnterPassword">
         </div>
-        <button type="submit" name='updatePassword' class="btn btn-primary"> Update</button>
+        <button style="background-color:green" type="submit" name='updatePassword' class="btn btn-primary"> Update</button>
     </div>
 
     <?php

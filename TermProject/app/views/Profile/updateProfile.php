@@ -18,7 +18,7 @@
       <input type="text" class="form-control <?php echo (!empty($data['street_address_error'])) ? 'is-invalid' : ''; ?>" id="shippingAddressInput" name="shippingAddressInput" value="<?php echo $data['address']?>">
       <span class="invalid-feedback"><?php echo $data['street_address_error']; ?>
     </div>
-    <div><button type='submit' name='updateClient' class='btn btn-primary'>Update </a> </button></div>
+    <div><button style="background-color:green" type='submit' name='updateClient' class='btn btn-primary'>Update </a> </button></div>
 
   </form>   
 

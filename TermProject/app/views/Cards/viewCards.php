@@ -16,14 +16,14 @@
                 echo"<td>$cards->CardNumber</td>";
                 echo"<td>$cards->CardName</td>";
                 echo"<td>
-                <a href='/TermProject/Cards/delete/$cards->CardId'> Remove</a>
+                <a style='color:green' href='/TermProject/Cards/delete/$cards->CardId'> Remove</a>
                 </td>";
                 echo"</tr>";
             }
         }else {
                 echo"Apparently, you have not added any card yet!";
             }
-            echo '<a class="nav-link" href="/TermProject/Cards/addCard"><i class="fa-solid fa-profile"></i> Add a card </a></li>';
+            echo '<a style="color:green" class="nav-link" href="/TermProject/Cards/addCard"><i class="fa-solid fa-profile"></i> Add a card </a></li>';
         ?>
     </table>
 

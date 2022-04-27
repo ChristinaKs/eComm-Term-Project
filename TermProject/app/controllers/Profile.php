@@ -36,12 +36,12 @@ class Profile extends Controller
                 "last_name" => trim($_POST['lastNameInput']),
                 "address" => trim($_POST['shippingAddressInput'])
             ];
-            if($this->validateData($data)){
+          //  if($this->validateData($data)){
                 if($this->model('profileModel')->updateClient($data)){
                     echo 'Please wait we are updating the profile for you!';
                     echo '<meta http-equiv="Refresh" content="2; url=/TermProject/Profile/">';
                 }
-            }
+           // }
         }
     }
 
@@ -84,12 +84,15 @@ class Profile extends Controller
 
     public function delete(){
         if(!isset($_POST['deleteProfile'])){
-           if($this->model('profileModel')->delete($_SESSION['ClientEmail'])){
-                echo 'Please wait we are deleting the account for you!';
-                unset($_SESSION['ClientEmail']);
-                session_destroy();
-                echo '<meta http-equiv="Refresh" content=".2; url=/TermProject/Login">';
-           }
+            if ($this->model('addressesModel')->deleteClientAddresses($_SESSION['ClientEmail']) &&
+                     $this->model('cardsModel')->deleteClientCards($_SESSION['ClientEmail'])){
+                if($this->model('profileModel')->delete($_SESSION['ClientEmail'])){
+                    echo 'Please wait we are deleting the account for you!';
+                    unset($_SESSION['ClientEmail']);
+                    session_destroy();
+                    echo '<meta http-equiv="Refresh" content=".2; url=/TermProject/Login">';
+                }
+            }
         }
     }
 

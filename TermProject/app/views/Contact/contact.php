@@ -43,7 +43,7 @@
   </div>
 
   <div>
-        <button type="submit" name="SendMessage" class="btn btn-primary">Send message</button>
+        <button style="background-color:green" type="submit" name="SendMessage" class="btn btn-primary">Send message</button>
     </div>
 </form>
     <?php require APPROOT . '/views/includes/footer.php'; ?>

@@ -47,6 +47,10 @@
                 $this->view('Cards/viewCards',$data);
                }
         }
+
+        public function deleteClientCards($ClientEmail){
+            $this->model('cardsModel')->deleteClientAddresses($ClientEmail);
+        }
     }
 
 ?>

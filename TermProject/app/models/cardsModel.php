@@ -37,5 +37,17 @@
                 return false;
             }
         }
+
+        public function deleteClientCards($ClientEmail){
+            $this->db->query("DELETE FROM cards WHERE ClientEmail = :ClientEmail");
+            $this->db->bind('ClientEmail',$ClientEmail);
+
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
     }
 ?>
