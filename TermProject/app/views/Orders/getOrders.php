@@ -28,7 +28,7 @@
             <td>Order Date</td>
             <td>Total Price</td>
             <td>Order Status</td>
-            <td colspan="2" class="text-center">Update</td>
+            <td>View Details</td>
         </tr>
         <?php
             foreach($data["orders"] as $orders){
@@ -37,9 +37,8 @@
                 echo"<td>$orders->ClientEmail</td>";
                 echo"<td>$orders->OrderDate</td>";
                 echo"<td>$orders->OrderTotalPrice</td>";
-                echo"<td>$orders->OrderStatus</td>";
                 echo"<td>
-                <input type='checkbox' name='OrderStatus' value='$orders->OrderStatus'> Shipped
+                <input type='checkbox' name='OrderStatusCB' value='$orders->OrderStatus'> Shipped
                 </td>";
                 echo"<td>
                 <a href='/TermProject/Orders/getOrder/$orders->OrderId'>View Details</a>

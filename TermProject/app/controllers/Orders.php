@@ -20,27 +20,23 @@
             $this->view('Orders/getOrders',$data);
         }
 
-        // public function update($UPC){
-        //     $product = $this->productsModel->getProduct($UPC);
-        //     if(!isset($_POST['update'])){
-        //         $this->view('Products/updateProduct',$product);
-        //     }
-        //     else{
-        //         $filename= $this->imageUpload();
-        //         $data=[
-        //             'ProductName' => trim($_POST['ProductName']),
-        //             'ProductDescription' => trim($_POST['ProductDescription']),
-        //             'ProductPrice' => trim($_POST['ProductPrice']),
-        //             'ProductAmount' => trim($_POST['ProductAmount']),
-        //             'picture' => $filename,
-        //             'UPC' => $UPC
-        //         ];
-        //         if($this->productsModel->updateProduct($data)){
-        //             echo 'Please wait we are upating the Product for you!';
-        //             echo '<meta http-equiv="Refresh" content="2; url=/TermProject/Products/getProducts">';
-        //         }      
-        //     }
-        // }
+        public function updateOrderStatus($OrderId){
+            $order = $this->orderModel->getOrder($OrderId);
+            if(!isset($_POST['OrderStatusCB'])){
+                $data=[
+                    'OrderStatus'=> ""
+                ];
+            }
+            else{
+                $data=[
+                    'OrderStatus'=> "Shipped"
+                ];
+                if($this->productsModel->updateProduct($data)){
+                    echo 'Please wait we are upating the Order Status for you!';
+                    echo '<meta http-equiv="Refresh" content="0.1; url=/TermProject/Orders/getOrders">';
+                }      
+            }
+        }
     }
 
 ?>
