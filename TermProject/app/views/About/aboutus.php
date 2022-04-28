@@ -1,22 +1,24 @@
 <?php require APPROOT . '/views/includes/header.php';  ?>
 <?php
     if (isAdminLoggedIn()) {
-        echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">';
-        echo '<div class="collapse navbar-collapse" id="navbarSupportedContent">';
-        echo '<ul class="navbar-nav mr-auto">';
-        echo '<li class="nav-item">';
-        echo '<a class="nav-link" href="/TermProject/Products/getProducts">Get Products</a>';
-        echo '</li>';
-        echo '<li class="nav-item">';
-        echo '<a class="nav-link" href="/TermProject/Products/createProduct">Create Product</a>';
-        echo '</li>';
-        echo '</li>';
-        echo '<li class="nav-item">';
-        echo '<a class="nav-link" href="/TermProject/Clients/viewClients">View Clients</a>';
-        echo '</li>';
-        echo '</ul>';
-        echo '</div>';
-        echo '</nav>';
+      echo '<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #078A60;">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/TermProject/Products/getProducts">All Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/TermProject/Products/createProduct">Create a Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/TermProject/Clients/viewClients">My Clients</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/TermProject/Orders/getOrders">All Orders</a>
+          </li>
+        </ul>
+      </div>
+    </nav>';
     }
 ?>
 <!-- <form>

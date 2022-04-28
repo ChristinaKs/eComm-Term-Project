@@ -1,23 +1,26 @@
 <?php require APPROOT . '/views/includes/header.php'; 
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #078A60;">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="/TermProject/Products/getProducts">Get Products</a>
+        <a class="nav-link" href="/TermProject/Products/getProducts">All Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/TermProject/Products/createProduct">Create Product</a>
+        <a class="nav-link" href="/TermProject/Products/createProduct">Create a Product</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/TermProject/Clients/viewClients">View Clients</a>
-        </li>
+        <a class="nav-link" href="/TermProject/Clients/viewClients">My Clients</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/TermProject/Orders/getOrders">All Orders</a>
+      </li>
     </ul>
   </div>
 </nav>
 
-    <h1>Get Products View</h1>
+    <h1>All Products</h1>
     <table  class="table table-bordered">
         <tr>
             <td>Image</td>

@@ -20,35 +20,32 @@
   </div>
 </nav>
 
-    <h1>View Clients</h1>
+    <h1>Orders</h1>
     <table  class="table table-bordered">
         <tr>
+            <td>Order ID</td>
             <td>Client Email</td>
-            <td>First Name</td>
-            <td>Last Name</td>
-            <td>Shipping Address</td>
-            <td colspan="3" class="text-center"> Actions</td>
+            <td>Order Date</td>
+            <td>Total Price</td>
+            <td>Order Status</td>
+            <td colspan="2" class="text-center">Update</td>
         </tr>
         <?php
-        if ($data["clients"] != null) {
-            foreach($data["clients"] as $clients){
+            foreach($data["orders"] as $orders){
                 echo"<tr>";
-                echo"<td>$clients->ClientEmail</td>";
-                echo"<td>$clients->ClientFirstName</td>";
-                echo"<td>$clients->ClientLastName</td>";
-                echo"<td>$clients->ClientShippingAddress</td>";
+                echo"<td>$orders->OrderId</td>";
+                echo"<td>$orders->ClientEmail</td>";
+                echo"<td>$orders->OrderDate</td>";
+                echo"<td>$orders->OrderTotalPrice</td>";
+                echo"<td>$orders->OrderStatus</td>";
                 echo"<td>
-                <a href='/TermProject/Clients/delete/$clients->ClientEmail'> Ban</a>
+                <input type='checkbox' name='OrderStatus' value='$orders->OrderStatus'> Shipped
+                </td>";
+                echo"<td>
+                <a href='/TermProject/Orders/getOrder/$orders->OrderId'>View Details</a>
                 </td>";
                 echo"</tr>";
             }
-        }else {
-                echo"Apparently, there are no clients for the moment";
-            }
-        
         ?>
     </table>
-
-
-   
 <?php require APPROOT . '/views/includes/footer.php'; ?>

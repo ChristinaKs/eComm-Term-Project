@@ -27,6 +27,7 @@
             $this->db->bind(':ClientEmail',$clientEmail);
             return $this->db->getResultSet();
         }
+
         public function createOrder($data){
             $this->db->query("INSERT INTO orders (OrderStatus,OrderTotalPrice, ClientEmail, OrderDate) values (:OrderId, :OrderStatus, :UPC, :OrderTotalPrice, :ClientEmail, :OrderDate)");
             $this->db->bind(':OrderStatus', $data['OrderStatus']);
