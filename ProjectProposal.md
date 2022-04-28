@@ -18,7 +18,7 @@
 | 4 | A seller may view the orders | A user may have the app choose a random product for them | A user may be able to add shipping address |
 | 5 | A user may contact the seller | A user may be able to delete their account | A seller may be able to update their "about us" page |
 | 6 | A user may view details of each products | A user may be able to sign up | A user may be able to check their order history |
-| 7 | A user may add items to their cart | A user may be able to check their order status | A user may cancel their order |
-| 8 | A user may remove items from their cart | A user can return their product(refund) | User may be able to add a credit card |
+| 7 | A user may add items to their cart | A user may be able to check their order status | The admin may edit the "contact us" page |
+| 8 | A user may remove items from their cart | A user may view their order status | User may be able to add a credit card |
 | 9 | A user may modify quantities of an item in their cart | A user may be able to change their password | User may be able to search for product |
 | 10 | A user may place an order/checkout | User may be able to view their cart | A user may be able to switch the website to French |
