@@ -1,5 +1,4 @@
 <?php require APPROOT . '/views/includes/header.php';  ?>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
 <?php
     if (isAdminLoggedIn()) {
@@ -24,33 +23,6 @@
     }
 ?>
 <h1>Contact Us</h1>
-<table  class="table" style="margin-left: auto; margin-right: auto; border-collapse: collapse;">
-        <?php
-            foreach($data["contact"] as $contact){
-                echo"<tr>";
-                echo"<td>";
-                if($contact->Twitter == ''){
-                  echo "";
-                } else{
-                  echo "<a href='$contact->Twitter' class='fa fa-twitter'></a></td>";
-                }
-                echo"<td>";
-                if($contact->Instagram == ''){
-                  echo "";
-                } else{
-                echo "<a href='$contact->Instagram' class='fa fa-instagram'></a></td>";
-                }
-                echo"<td>";
-                if($contact->Facebook == ''){
-                  echo "";
-                } else{
-                  echo "<td><a href='$contact->Facebook' class='fa fa-facebook'></a></td>";
-                }
-                echo"<td>";
-                echo"</tr>";
-            }
-        ?>
-    </table>
 
 <form>
   <div class="form-group">
@@ -80,4 +52,33 @@
         <button style="background-color:green" type="submit" name="SendMessage" class="btn btn-primary">Send message</button>
     </div>
 </form>
+
+<table  class="table" style="margin-left: auto; margin-right: auto; border-collapse: collapse;">
+        <?php
+            foreach($data["contact"] as $contact){
+                echo"<tr>";
+                echo"<td>";
+                if($contact->Twitter == ''){
+                  echo "";
+                } else{
+                  echo "<a href='$contact->Twitter'>Twitter</a></td>";
+                }
+                echo"<td>";
+                if($contact->Instagram == ''){
+                  echo "";
+                } else{
+                echo "<a href='$contact->Instagram'>Instagram</a></td>";
+                }
+                echo"<td>";
+                if($contact->Facebook == ''){
+                  echo "";
+                } else{
+                  echo "<td><a href='$contact->Facebook'>Facebook</a></td>";
+                }
+                echo"<td>";
+                echo"</tr>";
+            }
+        ?>
+    </table>
+
     <?php require APPROOT . '/views/includes/footer.php'; ?>
