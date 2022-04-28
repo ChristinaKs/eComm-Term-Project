@@ -19,7 +19,7 @@ class adminLogin extends Controller
                 $hashed_pass = $user->AdminPasswordHash;
                 $password = $_POST['AdminPassword'];
                 if(password_verify($password,$hashed_pass)){
-                    //echo '<meta http-equiv="Refresh" content="2; url=/MVC/">';
+                    //echo '<meta http-equiv="Refresh" content="0.1; url=/MVC/">';
                     $this->createSession($user);
                     $data = [
                         'msg' => "Welcome, $user->AdminFirstName $user->AdminLastName!",

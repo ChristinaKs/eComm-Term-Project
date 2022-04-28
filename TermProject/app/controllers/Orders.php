@@ -21,19 +21,33 @@
         }
 
         public function updateOrderStatus($OrderId){
-            $order = $this->orderModel->getOrder($OrderId);
+            $order = $this->orderModel->getOrderById($OrderId);
             if(!isset($_POST['OrderStatusCB'])){
+               
+
                 $data=[
-                    'OrderStatus'=> ""
+                    'OrderStatus'=> "",
+                    'OrderId' => $OrderId
                 ];
+                if($this->orderModel->updateOrderStatus($data)){
+                    //echo 'Please wait we are upating the Order Status for you!';
+                    //echo '<meta http-equiv="Refresh" content="0; url=/TermProject/Orders/getOrders">';
+                    header('Location: /TermProject/Orders/getOrders');
+
+                }    
             }
             else{
+              
                 $data=[
-                    'OrderStatus'=> "Shipped"
+
+                    'OrderStatus'=> "Shipped",
+                    'OrderId' => $OrderId
                 ];
-                if($this->productsModel->updateProduct($data)){
-                    echo 'Please wait we are upating the Order Status for you!';
-                    echo '<meta http-equiv="Refresh" content="0.1; url=/TermProject/Orders/getOrders">';
+                if($this->orderModel->updateOrderStatus($data)){
+                    //echo 'Please wait we are upating the Order Status for you!';
+                   // echo '<meta http-equiv="Refresh" content="2; url=/TermProject/Orders/getOrders">';
+                    header('Location: /TermProject/Orders/getOrders');
+
                 }      
             }
         }

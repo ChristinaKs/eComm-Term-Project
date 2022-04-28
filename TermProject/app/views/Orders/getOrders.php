@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/includes/header.php'; 
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #078A60;">
+<nav class="navbar navbar-expand-lg navbar-light" style="font-family: cursive; background-color: #078A60;">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
@@ -38,7 +38,13 @@
                 echo"<td>$orders->OrderDate</td>";
                 echo"<td>$orders->OrderTotalPrice</td>";
                 echo"<td>
-                <input type='checkbox' name='OrderStatusCB' value='$orders->OrderStatus'> Shipped
+                <form action='/TermProject/Orders/updateOrderStatus/$orders->OrderId' method='post'> 
+                <input type='checkbox' name='OrderStatusCB' onChange='this.form.submit()'";
+                if($orders->OrderStatus == 'Shipped'){
+                  echo "checked";
+                }
+                echo "> Shipped
+                </form>
                 </td>";
                 echo"<td>
                 <a href='/TermProject/Orders/getOrder/$orders->OrderId'>View Details</a>

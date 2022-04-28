@@ -12,7 +12,7 @@
 
         public function getOrderById($OrderId){
             $this->db->query("SELECT * FROM orders WHERE OrderId = :OrderId");
-            $this->db->bind(':OrderId',$OrderId);
+            $this->db->bind(':OrderId', $OrderId);
             return $this->db->getSingle();
         }
 

@@ -33,7 +33,7 @@
                 ];
 
                 if($this->model('cardsModel')->addCard($data)){
-                    echo 'Please wait we are adding the card in your card list!';
+                    //echo 'Please wait we are adding the card in your card list!';
                     header('Location: /TermProject/Cards/viewCards');
                 }
             }

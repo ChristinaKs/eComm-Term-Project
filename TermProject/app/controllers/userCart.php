@@ -30,7 +30,8 @@ class userCart extends Controller{
 
         if($this->cartModel->removeFromCart($data)){
             echo 'We are deleting the item for you!';
-            echo '<meta http-equiv="Refresh" content="1; url=/TermProject/userCart/displayCart">';
+            // echo '<meta http-equiv="Refresh" content="0.1; url=/TermProject/userCart/displayCart">';
+            header('Location: /TermProject/userCart/displayCart');
         }
     }
     public function addQuantity($item_id){
@@ -42,7 +43,8 @@ class userCart extends Controller{
             'item_id'=> $item_id
         ];
         if($this->cartModel->updateQuantity($data)){
-            echo '<meta http-equiv="Refresh" content="1; url=/TermProject/userCart/displayCart">';
+            // echo '<meta http-equiv="Refresh" content="0.1; url=/TermProject/userCart/displayCart">';
+            header('Location: /TermProject/userCart/displayCart');
         }
     }
     public function decreaseQuantity($item_id){
@@ -54,7 +56,8 @@ class userCart extends Controller{
             'item_id'=> $item_id
         ];
         if($this->cartModel->updateQuantity($data)){
-            echo '<meta http-equiv="Refresh" content="1; url=/TermProject/userCart/displayCart">';
+            // echo '<meta http-equiv="Refresh" content="0.1; url=/TermProject/userCart/displayCart">';
+            header('Location: /TermProject/userCart/displayCart');
         }
     }
 

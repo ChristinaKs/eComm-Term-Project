@@ -39,7 +39,8 @@
                 ];
                
                 if($this->productsModel->createProduct($data)){
-                    echo 'Please wait we are creating the product for you!';
+                    // echo 'Please wait we are creating the product for you!';
+                    // header('Location: /TermProject/Products/getProducts');
                     header('Location: /TermProject/Products/getProducts');
                 }
             }
@@ -95,8 +96,9 @@
                     'UPC' => $UPC
                 ];
                 if($this->productsModel->updateProduct($data)){
-                    echo 'Please wait we are upating the Product for you!';
-                    echo '<meta http-equiv="Refresh" content="2; url=/TermProject/Products/getProducts">';
+                    // echo 'Please wait we are upating the Product for you!';
+                    // echo '<meta http-equiv="Refresh" content="0.1; url=/TermProject/Products/getProducts">';
+                    header('Location: /TermProject/Products/getProducts');
                 }      
             }
         }
@@ -106,8 +108,9 @@
                 'UPC' => $UPC
             ];
             if($this->productsModel->delete($data)){
-                echo 'Please wait we are deleting the product for you!';
-                echo '<meta http-equiv="Refresh" content=".2; url=/TermProject/Products/getProducts">';
+                // echo 'Please wait we are deleting the product for you!';
+                // echo '<meta http-equiv="Refresh" content=".2; url=/TermProject/Products/getProducts">';
+                header('Location: /TermProject/Products/getProducts');
             }
         }     
     }

@@ -37,8 +37,9 @@ class About extends Controller
                     'aboutid' => 1
                 ];
                 if($this->aboutModel->updateAbout($data)){
-                    echo 'Please wait we are upating the "About Us" page for you!';
-                    echo '<meta http-equiv="Refresh" content="2; url=/TermProject/About/displayAbout">';
+                    // echo 'Please wait we are upating the "About Us" page for you!';
+                    // echo '<meta http-equiv="Refresh" content="0.1; url=/TermProject/About/displayAbout">';
+                    header('Location: /TermProject/About/displayAbout');
                 }      
             }
     }

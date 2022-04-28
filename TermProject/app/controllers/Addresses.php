@@ -32,7 +32,7 @@
                 ];
 
                 if($this->model('addressesModel')->addAddress($data)){
-                    echo 'Please wait we are adding the Address in your Address list!';
+                    //echo 'Please wait we are adding the Address in your Address list!';
                     header('Location: /TermProject/Addresses/viewAddresses');
                 }
             }

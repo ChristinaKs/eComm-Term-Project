@@ -49,8 +49,9 @@ class Profile extends Controller
             ];
           //  if($this->validateData($data)){
                 if($this->model('profileModel')->updateClient($data)){
-                    echo 'Please wait we are updating the profile for you!';
-                    echo '<meta http-equiv="Refresh" content="2; url=/TermProject/Profile/">';
+                    // echo 'Please wait we are updating the profile for you!';
+                    // echo '<meta http-equiv="Refresh" content="0.1; url=/TermProject/Profile/">';
+                    header('Location: /TermProject/Profile');
                 }
            // }
         }
@@ -85,8 +86,9 @@ class Profile extends Controller
                     $this->view('Profile/updatePassword',$data);
                 }else {
                     if($this->model('profileModel')->updatePassword($data)){
-                        echo 'Please wait we are updating the password for you!';
-                        echo '<meta http-equiv="Refresh" content="2; url=/TermProject/Profile">';
+                        // echo 'Please wait we are updating the password for you!';
+                        // echo '<meta http-equiv="Refresh" content="0.1; url=/TermProject/Profile">';
+                        header('Location: /TermProject/Profile');
                     }
                 }
             }
@@ -101,7 +103,8 @@ class Profile extends Controller
                     echo 'Please wait we are deleting the account for you!';
                     unset($_SESSION['ClientEmail']);
                     session_destroy();
-                    echo '<meta http-equiv="Refresh" content=".2; url=/TermProject/Login">';
+                    // echo '<meta http-equiv="Refresh" content="0.1; url=/TermProject/Login">';
+                    header('Location: /TermProject/Logins');
                 }
             }
         }

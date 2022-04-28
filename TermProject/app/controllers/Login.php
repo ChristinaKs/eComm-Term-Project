@@ -68,8 +68,9 @@ class Login extends Controller
                 ];
                 if($this->validateData($data)){
                     if($this->loginModel->createClient($data)){
-                            echo 'Please wait creating the account for you';
-                            echo '<meta http-equiv="Refresh" content="2; url=/TermProject/Login/">';
+                            // echo 'Please wait creating the account for you';
+                            // echo '<meta http-equiv="Refresh" content="0.1; url=/TermProject/Login/">';
+                            header('Location: /TermProject/Login/');
                     }
                 }
             }
@@ -113,7 +114,8 @@ class Login extends Controller
     public function logout(){
         unset($_SESSION['user_id']);
         session_destroy();
-        echo '<meta http-equiv="Refresh" content="1; url=/TermProject/Login/">';
+        // echo '<meta http-equiv="Refresh" content="0.1; url=/TermProject/Login/">';
+        header('Location: /TermProject/Login/');
     }
 }
 
