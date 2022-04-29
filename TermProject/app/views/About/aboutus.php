@@ -27,7 +27,7 @@
   </div>
 </form> -->
 <div class="about-section" style="background-color: white;">
-  <h1>About Us</h1>
+  <h1>About Gemarius</h1>
   <?php
   foreach($data["about"] as $about){
     echo "&emsp;&emsp;";

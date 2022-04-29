@@ -23,7 +23,7 @@
 <?php
 $about = $data[0];
 ?> 
-    <h1>Update Products View</h1>
+    <h1>About Gemarius Edit Page</h1>
     
     <form action='' method='post' enctype="multipart/form-data">
 

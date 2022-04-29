@@ -20,37 +20,39 @@
   </div>
 </nav>
 
-    <h1>Orders</h1>
-    <table  class="table table-bordered">
-        <tr>
-            <td>Order ID</td>
-            <td>Client Email</td>
-            <td>Order Date</td>
-            <td>Total Price</td>
-            <td>Order Status</td>
-            <td>View Details</td>
-        </tr>
-        <?php
-            foreach($data["orders"] as $orders){
-                echo"<tr>";
-                echo"<td>$orders->OrderId</td>";
-                echo"<td>$orders->ClientEmail</td>";
-                echo"<td>$orders->OrderDate</td>";
-                echo"<td>$orders->OrderTotalPrice</td>";
-                echo"<td>
-                <form action='/TermProject/Orders/updateOrderStatus/$orders->OrderId' method='post'> 
-                <input type='checkbox' name='OrderStatusCB' onChange='this.form.submit()'";
-                if($orders->OrderStatus == 'Shipped'){
-                  echo "checked";
-                }
-                echo "> Shipped
-                </form>
-                </td>";
-                echo"<td>
-                <a href='/TermProject/Orders/getOrder/$orders->OrderId'>View Details</a>
-                </td>";
-                echo"</tr>";
-            }
-        ?>
-    </table>
+<h1>Orders</h1>
+  <table  class="table table-bordered">
+    <tr>
+      <td>Order ID</td>
+      <td>Client Email</td>
+      <td>Order Date</td>
+      <td>Total Price</td>
+      <td>Order Status</td>
+      <td>View Details</td>
+    </tr>
+    <?php
+      $totalPrice = 0;
+      foreach($data["orders"] as $orders){
+        $totalPrice += $product->ProductPrice*$product->Quantity;
+        echo"<tr>";
+        echo"<td>$orders->OrderId</td>";
+        echo"<td>$orders->ClientEmail</td>";
+        echo"<td>$orders->OrderDate</td>";
+        echo"<td>$orders->OrderTotalPrice</td>";
+        echo"<td>
+          <form action='/TermProject/Orders/updateOrderStatus/$orders->OrderId' method='post'> 
+          <input type='checkbox' name='OrderStatusCB' onChange='this.form.submit()'";
+        if($orders->OrderStatus == 'Shipped'){
+          echo "checked";
+        }
+        echo "> Shipped
+          </form>
+          </td>";
+        echo"<td>
+          <a href='/TermProject/Orders/getOrder/$orders->OrderId'>View Details</a>
+          </td>";
+        echo"</tr>";
+      }
+    ?>
+  </table>
 <?php require APPROOT . '/views/includes/footer.php'; ?>
