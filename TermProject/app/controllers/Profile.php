@@ -14,7 +14,6 @@ class Profile extends Controller
         $data = [
             "first_name" => $user->ClientFirstName,
             "last_name" => $user->ClientLastName,
-            "address" => $user->ClientShippingAddress,
             "email" => $user->ClientEmail
         ];
 
@@ -34,7 +33,6 @@ class Profile extends Controller
         $data = [
             "first_name" => $user->ClientFirstName,
             "last_name" => $user->ClientLastName,
-            "address" => $user->ClientShippingAddress,
             "email" => $user->ClientEmail
         ];
         if(!isset($_POST['updateClient'])){
@@ -44,8 +42,7 @@ class Profile extends Controller
             $data = [
                 "email" => $user->ClientEmail,
                 "first_name" => trim($_POST['firstNameInput']),
-                "last_name" => trim($_POST['lastNameInput']),
-                "address" => trim($_POST['shippingAddressInput'])
+                "last_name" => trim($_POST['lastNameInput'])
             ];
           //  if($this->validateData($data)){
                 if($this->model('profileModel')->updateClient($data)){

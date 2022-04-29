@@ -12,12 +12,6 @@
       <label for="lastName"><?=_("Last Name")?></label>
       <label for="text" class="form-control" id="lastName" name="lastName"><?php echo $data['last_name']?></label>
     </div>
-
-    <div class="form-group">
-      <label for="shippingAddress"><?=_("Shipping Address")?></label>
-      <label for="text" class="form-control" id="shippingAddress" name="shippingAddress"><?php echo $data['address']?></label>
-    </div>
-
     <div class="form-group">
       <label for="email"><?=_("Email")?></label>
       <label for="text" class="form-control" id="email" name="email"><?php echo $data['email']?></label>
@@ -26,6 +20,8 @@
     <button style="background-color:green" type="submit" name='changePassword' class="btn btn-primary"><a href='/TermProject/Profile/updatePassword'><?=_("Change password")?></button>
     <button style="background-color:green" type="submit" name='deleteProfile' class="btn btn-primary"><a href='/TermProject/Profile/delete'><?=_("Delete account")?></button>
     </div>
+    <a class="nav-link" style="color:green" href="/TermProject/Cards/viewCards"><i class="fa-solid fa-profile"></i> View my cards </a></li>
+    <a class="nav-link" style="color:green" href="/TermProject/Addresses/viewAddresses"><i class="fa-solid fa-profile"></i> View my addresses </a></li>
   </form>   
   <br>
   <h2>Order History</h2>

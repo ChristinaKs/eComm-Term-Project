@@ -21,6 +21,11 @@
       <span class="invalid-feedback"><?php echo $data['street_address_error']; ?> </span>
     </div>
     <div class="form-group">
+      <label for="ClientCardInformation">Credit card information</label>
+      <input type="text" class="form-control" id="ClientCardNumber" name="ClientCardNumber" placeholder="Card number (e.g. 0000000000000000)"><br>
+      <input type="text" class="form-control" id="ClientCardName" name="ClientCardName" placeholder="Name of the cardholder on the card">
+    </div>
+    <div class="form-group">
       <label for="password">Password</label>
       <input type="password" class="form-control <?php echo (!empty($data['password_len_error'])) ? 'is-invalid' : ''; ?>" id="password" name="password" placeholder="Please enter your password">
       <span class="invalid-feedback"><?php echo $data['password_len_error']; ?> </span>

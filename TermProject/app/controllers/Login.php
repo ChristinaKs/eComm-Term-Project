@@ -54,11 +54,13 @@ class Login extends Controller
                 $data = [
                     'ClientFirstName' => trim($_POST['ClientFirstName']),
                     'ClientLastName' => trim($_POST['ClientLastName']),
-                    'ClientShippingAddress' => trim($_POST['ClientShippingAddress']),
+                    'Address' => trim($_POST['ClientShippingAddress']),
                     'pass' => $_POST['password'],
                     'pass_verify' => $_POST['verify_password'],
                     'ClientPassword' => password_hash($_POST['password'], PASSWORD_DEFAULT),
                     'ClientEmail' => trim($_POST['ClientEmail']),
+                    'ClientCardNumber' => trim($_POST['ClientCardNumber']),
+                    'ClientCardName' => trim($_POST['ClientCardName']),
                     'password_error' => '',
                     'password_match_error' => '',
                     'password_len_error' => '',
@@ -67,7 +69,8 @@ class Login extends Controller
                     'street_address_error' => ''
                 ];
                 if($this->validateData($data)){
-                    if($this->loginModel->createClient($data)){
+                    if($this->loginModel->createClient($data) && $this->model('addressesModel')->addAddress($data) && 
+                            $this->model('cardsModel')->addCard($data)){
                             // echo 'Please wait creating the account for you';
                             // echo '<meta http-equiv="Refresh" content="0.1; url=/TermProject/Login/">';
                             header('Location: /TermProject/Login/');

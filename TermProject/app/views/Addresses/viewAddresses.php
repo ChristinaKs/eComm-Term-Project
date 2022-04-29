@@ -8,16 +8,6 @@
         echo "<td colspan='3' class='text-center'> Actions</td>";
         echo "</tr>";
 
-        $user = $this->model('profileModel')->getClient($_SESSION['ClientEmail']);
-
-        echo"<tr>";
-            echo"<td>
-            $user->ClientShippingAddress </td>";
-            echo"<td>
-            <a style='color:green' href='/TermProject/Profile/update'> Update</a>
-            </td>";
-            echo"</tr>";
-
         if ($data["addresses"] != null) {
             foreach($data["addresses"] as $addresses){
                 
