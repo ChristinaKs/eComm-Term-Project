@@ -8,7 +8,12 @@ class Contact extends Controller
 
     public function index()
     {
-        $this->view('Contact/contact');
+        // $this->view('Contact/contact');
+        $contact = $this->contactModel->displayContact();
+        $data = [
+            "contact" => $contact
+        ];
+        $this->view('Contact/contact', $data);
     }
     
     public function displayContact(){
