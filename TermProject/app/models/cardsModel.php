@@ -12,10 +12,10 @@
         }
 
         public function addCard($data){
-            $this->db->query("INSERT INTO cards (CardNumber, CardName, ClientEmail) values (:ClientCardNumber, 
+            $this->db->query("INSERT INTO cards (ClientCardNumber, CardName, ClientEmail) values (:ClientCardNumber, 
                     :ClientCardName, :ClientEmail)");
-            $this->db->bind(':ClientCardNumber', $data['ClientCardNumber']);
-            $this->db->bind(':ClientCardName', $data['ClientCardName']);
+            $this->db->bind(':ClientCardNumber', $data['CardNumber']);
+            $this->db->bind(':ClientCardName', $data['CardName']);
             $this->db->bind(':ClientEmail', $data['ClientEmail']);
 
             if($this->db->execute()){

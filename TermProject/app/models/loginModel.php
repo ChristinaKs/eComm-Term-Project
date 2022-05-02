@@ -22,7 +22,7 @@
                         CardName, ClientEmail) VALUES (:ClientCardNumber, :ClientCardName, :ClientEmail)");
             $this->db->bind(':ClientFirstName', $data['ClientFirstName']);
             $this->db->bind(':ClientLastName', $data['ClientLastName']);
-            $this->db->bind(':Address', $data['ClientShippingAddress']);
+            $this->db->bind(':Address', $data['Address']);
             $this->db->bind(':ClientPassword', $data['ClientPassword']);
             $this->db->bind(':ClientEmail', $data['ClientEmail']);
             $this->db->bind(':ClientCardNumber', $data['ClientCardNumber']);

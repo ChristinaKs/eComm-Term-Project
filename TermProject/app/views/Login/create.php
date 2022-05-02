@@ -22,8 +22,8 @@
     </div>
     <div class="form-group">
       <label for="ClientCardInformation">Credit card information</label>
-      <input type="text" class="form-control" id="ClientCardNumber" name="ClientCardNumber" placeholder="Card number (e.g. 0000000000000000)"><br>
-      <input type="text" class="form-control" id="ClientCardName" name="ClientCardName" placeholder="Name of the cardholder on the card">
+      <input type="text" class="form-control" id="CardNumber" name="CardNumber" placeholder="Card number (e.g. 0000000000000000)"><br>
+      <input type="text" class="form-control" id="CardName" name="CardName" placeholder="Name of the cardholder on the card">
     </div>
     <div class="form-group">
       <label for="password">Password</label>

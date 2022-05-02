@@ -22,10 +22,10 @@ class Profile extends Controller
         $order = $this->orderModel->getOrdersByClientEmail($clientEmail);
         /*var_dump($order);
         print $order->OrderId;*/
-        $orderId = $order->OrderId;
-        $orderDetails = $this->orderDetailModel->getOrdersByOrderId($orderId);
+        //$orderId = $order->OrderId;
+        //$orderDetails = $this->orderDetailModel->getOrdersByOrderId($orderId);
         //var_dump($orderDetails);
-        $this->view('Profile/profile', $data, $order, $orderDetails);
+    $this->view('Profile/profile', $data/*, $order, $orderDetails*/);
     }
 
     public function update(){

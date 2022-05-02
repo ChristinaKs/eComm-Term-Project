@@ -13,7 +13,7 @@
             foreach($data["cards"] as $cards){
                 
                 echo"<tr>";
-                echo"<td>$cards->CardNumber</td>";
+                echo"<td>$cards->ClientCardNumber</td>";
                 echo"<td>$cards->CardName</td>";
                 echo"<td>
                 <a style='color:green' href='/TermProject/Cards/delete/$cards->CardId'> Remove</a>
