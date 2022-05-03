@@ -22,7 +22,7 @@ class Profile extends Controller
         $order = $this->orderModel->getOrdersByClientEmail($clientEmail);
         $orderDetailArray = array();
         foreach($order as $value){
-            array_push($orderArray,$this->orderDetailModel->getOrdersByOrderId($value->OrderId));
+            array_push($orderDetailArray,$this->orderDetailModel->getOrdersByOrderId($value->OrderId));
         }
         //var_dump($orderArray(0)->order_item_id);
         //$orderId = $order->OrderId;

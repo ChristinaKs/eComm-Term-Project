@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2022 at 08:18 AM
+-- Generation Time: May 03, 2022 at 06:14 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -100,7 +100,8 @@ CREATE TABLE `cards` (
 INSERT INTO `cards` (`CardId`, `CardNumber`, `CardName`, `ClientEmail`) VALUES
 (1, '1234567812345678', 'Ol VDJ', 'raigorodskyi@gmail.com'),
 (2, '9876543219876543', 'trrh hg', 'raigorodskyi@gmail.com'),
-(5, '987654321', 'NOT SARAH', 'sarah@gmail.com');
+(5, '987654321', 'NOT SARAH', 'sarah@gmail.com'),
+(6, '1', 'me', 'sarah@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -117,14 +118,6 @@ CREATE TABLE `cart` (
   `Quantity` int(11) NOT NULL,
   `picture` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`item_id`, `clientEmail`, `UPC`, `ProductName`, `ProductPrice`, `Quantity`, `picture`) VALUES
-(76, 'sarah@gmail.com', 1, 'Product', '15.00', 2, ''),
-(77, 'sarah@gmail.com', 1, 'Product', '15.00', 1, '');
 
 -- --------------------------------------------------------
 
@@ -167,7 +160,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`OrderId`, `OrderStatus`, `OrderTotalPrice`, `ClientEmail`, `OrderDate`) VALUES
-(1, 'Shipped', '45.00', 'sarah@gmail.com', '2022-04-27 07:20:58');
+(1, 'Shipped', '45.00', 'sarah@gmail.com', '2022-04-27 07:20:58'),
+(2, 'Order created', '45.00', 'sarah@gmail.com', '2022-05-03 22:00:32');
 
 -- --------------------------------------------------------
 
@@ -189,7 +183,9 @@ CREATE TABLE `order_detail` (
 --
 
 INSERT INTO `order_detail` (`order_item_id`, `orderId`, `UPC`, `ProductName`, `Quantity`, `unitPrice`) VALUES
-(1, 1, 2, 'AnotherOne', 2, 150);
+(1, 1, 2, 'AnotherOne', 2, 150),
+(2, 2, 1, '', 2, 15),
+(3, 2, 1, '', 1, 15);
 
 -- --------------------------------------------------------
 
@@ -297,7 +293,7 @@ ALTER TABLE `addresses`
 -- AUTO_INCREMENT for table `cards`
 --
 ALTER TABLE `cards`
-  MODIFY `CardId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `CardId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `cart`
@@ -309,13 +305,13 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `OrderId` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `OrderId` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `order_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `order_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `products`

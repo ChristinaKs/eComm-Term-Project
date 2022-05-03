@@ -29,7 +29,7 @@
         }
 
         public function createOrder($data){
-            $this->db->query("INSERT INTO orders (OrderStatus,OrderTotalPrice, ClientEmail, OrderDate) values (:OrderId, :OrderStatus, :UPC, :OrderTotalPrice, :ClientEmail, :OrderDate)");
+            $this->db->query("INSERT INTO orders (OrderStatus,OrderTotalPrice, ClientEmail, OrderDate) values (:OrderStatus, :OrderTotalPrice, :ClientEmail, :OrderDate)");
             $this->db->bind(':OrderStatus', $data['OrderStatus']);
             $this->db->bind(':OrderTotalPrice',$data['OrderTotalPrice']);
             $this->db->bind(':ClientEmail',$data['ClientEmail']);
