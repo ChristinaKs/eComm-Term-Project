@@ -26,7 +26,6 @@
             <td>Client Email</td>
             <td>First Name</td>
             <td>Last Name</td>
-            <td>Shipping Address</td>
             <td colspan="3" class="text-center"> Actions</td>
         </tr>
         <?php
@@ -36,7 +35,6 @@
                 echo"<td>$clients->ClientEmail</td>";
                 echo"<td>$clients->ClientFirstName</td>";
                 echo"<td>$clients->ClientLastName</td>";
-                echo"<td>$clients->ClientShippingAddress</td>";
                 echo"<td>
                 <a href='/TermProject/Clients/delete/$clients->ClientEmail'> Ban</a>
                 </td>";
