@@ -20,12 +20,15 @@ class Profile extends Controller
         //displaying order and order status
         $clientEmail = $_SESSION['ClientEmail'];
         $order = $this->orderModel->getOrdersByClientEmail($clientEmail);
-        /*var_dump($order);
-        print $order->OrderId;*/
+        $orderDetailArray = array();
+        foreach($order as $value){
+            array_push($orderArray,$this->orderDetailModel->getOrdersByOrderId($value->OrderId));
+        }
+        //var_dump($orderArray(0)->order_item_id);
         //$orderId = $order->OrderId;
         //$orderDetails = $this->orderDetailModel->getOrdersByOrderId($orderId);
         //var_dump($orderDetails);
-    $this->view('Profile/profile', $data/*, $order, $orderDetails*/);
+        $this->view('Profile/profile', $data, $order, $orderDetailArray);
     }
 
     public function update(){

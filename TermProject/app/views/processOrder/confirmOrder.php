@@ -43,30 +43,25 @@
         </label>
     </div>
     <br>
-    <label>Choose your card</label>
-    <select>
-        <option value="2">yooo</option>
-        <option value="2">yooo</option>
-        <option value="2">yooo</option>
-        <option value="2">yooo</option>
 
-    </select> 
-        <?php 
-            echo "<select>";
-            foreach($data2 as $card){
-                echo '<option value='.$card->$CardId.'>'.$card->$CardNumber.'</option>';
-            }
-            echo "</select>";
-        ?>
-    <br>
-    <label>Choose your address</label>
     <?php 
+        echo "<label>Choose your card</label>";
         echo "<select>";
-        foreach($data3 as $address){
-            echo '<option value='.$address->$AddressId.'>'.$card->$Address.'</option>';
+        foreach($data2 as $card){
+            echo "<option value='$card->CardId'>".$card->CardNumber."</option>";
         }
         echo "</select>";
     ?>
-    <button id='checkout' name='checkout' class='btn btn-dark'><a href='/TermProject/PaymentProcess/confirmOrder/$totalPrice'>Confirm my Order</a></button>
+    <br>
+    <?php 
+        echo "<label>Choose your address</label>";
+        echo "<select>";
+        foreach($data3 as $address){
+            echo "<option value='$address->AddressId'>".$address->Address."</option>";
+        }
+        echo "</select>";
+    ?>
+    <br>
+    <button id='checkout' name='checkout' class='btn btn-dark'><?php echo "<a href='/TermProject/PaymentProcess/confirmOrder/$totalPrice'>Confirm my Order </a>"?></button>
     <button id='backHome' name='backHome' class='btn btn-success'><a href='/TermProject/Home'>Continue Shopping</a></button>
 <?php require APPROOT . '/views/includes/footer.php'; ?>

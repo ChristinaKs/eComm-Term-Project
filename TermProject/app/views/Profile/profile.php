@@ -39,13 +39,14 @@
             </tr>
         <tbody>
             <?php 
-                var_dump($data3);
+                $i = 0;
                 foreach($data3 as $orderDetail){
                     echo"<tr>";
-                    echo"<td>$orderDetail->ProductName</td>";
-                    echo"<td>$orderDetail->Quantity</td>";
-                    echo"<td>$orderDetail->ProductPrice</td>";
+                    echo"<td>".$orderDetail[$i]->ProductName."</td>";
+                    echo"<td>".$orderDetail[$i]->Quantity."</td>";
+                    echo"<td>".$orderDetail[$i]->unitPrice."</td>";
                     echo"</tr>";
+                    $i++;
                 }
         
             ?>

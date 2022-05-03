@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2022 at 09:37 AM
+-- Generation Time: May 03, 2022 at 08:18 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -57,7 +57,8 @@ CREATE TABLE `addresses` (
 --
 
 INSERT INTO `addresses` (`AddressId`, `Address`, `ClientEmail`) VALUES
-(1, 'dddgwthbtb', 'raigorodskyi@gmail.com');
+(1, 'dddgwthbtb', 'raigorodskyi@gmail.com'),
+(3, '789482 lane street', 'sarah@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -98,7 +99,8 @@ CREATE TABLE `cards` (
 
 INSERT INTO `cards` (`CardId`, `CardNumber`, `CardName`, `ClientEmail`) VALUES
 (1, '1234567812345678', 'Ol VDJ', 'raigorodskyi@gmail.com'),
-(2, '9876543219876543', 'trrh hg', 'raigorodskyi@gmail.com');
+(2, '9876543219876543', 'trrh hg', 'raigorodskyi@gmail.com'),
+(5, '987654321', 'NOT SARAH', 'sarah@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -210,7 +212,11 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`UPC`, `ProductName`, `ProductDescription`, `ProductPrice`, `ProductAmount`, `picture`) VALUES
 (1, 'Product', 'yoo', '15.00', 3, ''),
-(2, 'AnotherOne', 'djKhaled', '150.00', 5, '');
+(2, 'AnotherOne', 'djKhaled', '150.00', 5, ''),
+(3, 'Tumble Bundle', 'Bundle of tumbled rocks', '20.00', 10, '6270c69fdf309.jpg'),
+(4, 'Small Celestite Geode', 'small beautiful celestite geode', '15.00', 5, '6270c6df7518d.jpg'),
+(5, 'Clear Quartz', 'Pieces of rough clear quartz', '5.00', 30, '6270c72049a67.jpg'),
+(6, 'Rose Quartz', 'Pieces of raw rose quartz. This will help you find a significant other', '50.00', 40, '6270c77358317.jpg');
 
 --
 -- Indexes for dumped tables
@@ -285,13 +291,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `addresses`
 --
 ALTER TABLE `addresses`
-  MODIFY `AddressId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `AddressId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `cards`
 --
 ALTER TABLE `cards`
-  MODIFY `CardId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `CardId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `cart`
@@ -315,7 +321,7 @@ ALTER TABLE `order_detail`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `UPC` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `UPC` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

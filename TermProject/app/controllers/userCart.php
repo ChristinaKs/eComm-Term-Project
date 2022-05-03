@@ -5,6 +5,7 @@ class userCart extends Controller{
         $this->cartModel = $this->model('cartModel');
         $this->cardModel = $this->model('cardsModel');
         $this->addressModel = $this->model('addressesModel');
+        $this->productModel= $this->model('productsModel');
     }
 
     public function index()
