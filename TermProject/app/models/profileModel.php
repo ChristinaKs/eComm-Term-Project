@@ -29,10 +29,9 @@
         }
 
         public function updateClient($data){
-            $this->db->query("UPDATE clients SET ClientFirstName=:clientFirstName, ClientLastName=:clientLastName, ClientShippingAddress=:clientShippingAddress WHERE ClientEmail=:clientEmail");
+            $this->db->query("UPDATE clients SET ClientFirstName=:clientFirstName, ClientLastName=:clientLastName WHERE ClientEmail=:clientEmail");
             $this->db->bind(':clientFirstName', $data['first_name']);
             $this->db->bind(':clientLastName', $data['last_name']);
-            $this->db->bind(':clientShippingAddress', $data['address']);
             $this->db->bind(':clientEmail', $data['email']);
             if($this->db->execute()){
                 return true;
