@@ -25,7 +25,7 @@
     <tr>
       <td>Order ID</td>
       <td>Product UPC</td>
-      <!-- <td>Product Name</td> -->
+      <td>Product Name</td>
       <td>Quantity</td>
     </tr>
     <?php
@@ -33,7 +33,7 @@
         echo"<tr>";
         echo"<td>$d->OrderId</td>";
         echo"<td>$d->UPC</td>";
-        // echo"<td>$d->ProductName</td>";
+        echo"<td>$d->ProductName</td>";
         echo"<td>$d->Quantity</td>";
         echo"</td>";
         echo"</tr>";

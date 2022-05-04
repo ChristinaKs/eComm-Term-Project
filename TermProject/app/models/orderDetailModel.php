@@ -21,9 +21,10 @@
             return $this->db->getResultSet();
         }
         public function createOrderDetail($data){
-            $this->db->query("INSERT INTO order_detail (orderId,UPC,Quantity,unitPrice) values (:orderId,:UPC,:Quantity,:unitPrice)");
+            $this->db->query("INSERT INTO order_detail (orderId,UPC,ProductName,Quantity,unitPrice) values (:orderId,:UPC,:ProductName,:Quantity,:unitPrice)");
             $this->db->bind(':orderId', $data['orderId']);
             $this->db->bind(':UPC',$data['UPC']);
+            $this->db->bind(':ProductName',$data['ProductName']);
             $this->db->bind(':Quantity',$data['Quantity']);
             $this->db->bind(':unitPrice',$data['unitPrice']);
 

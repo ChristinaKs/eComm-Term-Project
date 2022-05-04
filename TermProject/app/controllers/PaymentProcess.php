@@ -24,12 +24,13 @@
             $this->orderModel->createOrder($data);
             //make order details
             $orderDate = $this->orderModel->getOrderByDate($date);
-            $orderId = $orderDate->OrderId;
+            $OrderId = $orderDate->OrderId;
             $infoFromCart = $this->cartModel->displayCart($clientEmail);
             foreach($infoFromCart as $item){
                 $data =[
-                    'orderId'=> $orderId,
+                    'OrderId'=> $OrderId,
                     'UPC' => $item->UPC,
+                    'ProductName'=>$item->ProductName,
                     'Quantity' => $item->Quantity,
                     'unitPrice' => $item->ProductPrice
                 ];
