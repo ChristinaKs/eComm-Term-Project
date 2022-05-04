@@ -19,32 +19,24 @@
     </ul>
   </div>
 </nav>
-
+<br><br>
 <h1>Order Details</h1>
   <table  class="table table-bordered">
     <tr>
       <td>Order ID</td>
       <td>Product UPC</td>
-      <td>Product Name</td>
+      <!-- <td>Product Name</td> -->
       <td>Quantity</td>
     </tr>
     <?php
-      foreach($data["order_detail"] as $order_detail){
+      foreach($data["order_detail"] as $order_detail=>$d){
         echo"<tr>";
-        echo"<td>$data->orderId</td>";
-        echo"<td>$data->UPC</td>";
-        echo"<td>$data->ProductName</td>";
-        echo"<td>$data->Quantity</td>";
+        echo"<td>$d->OrderId</td>";
+        echo"<td>$d->UPC</td>";
+        // echo"<td>$d->ProductName</td>";
+        echo"<td>$d->Quantity</td>";
         echo"</td>";
         echo"</tr>";
-
-        // echo"<tr>";
-        // echo"<td>$order_detail->orderId</td>";
-        // echo"<td>$order_detail->UPC</td>";
-        // echo"<td>$order_detail->ProductName</td>";
-        // echo"<td>$order_detail->Quantity</td>";
-        // echo"</td>";
-        // echo"</tr>";
       }
     ?>
   </table>

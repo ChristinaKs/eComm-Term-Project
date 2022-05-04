@@ -16,6 +16,12 @@
             return $this->db->getSingle();
         }
 
+        public function getSingleOrder($OrderId){
+            $this->db->query("SELECT * FROM order_detail WHERE OrderId =:OrderId");
+            $this->db->bind(':OrderId', $OrderId);
+            return $this->db->getResultSet();
+        }
+
         public function getOrderByDate($date){
             $this->db->query("SELECT * FROM orders WHERE OrderDate = :OrderDate");
             $this->db->bind(':OrderDate',$date);

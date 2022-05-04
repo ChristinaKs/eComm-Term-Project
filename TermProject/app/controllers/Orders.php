@@ -20,12 +20,14 @@
             $this->view('Orders/getOrders',$data);
         }
 
-        public function getOrder(){
-            $order_detail = $this->orderModel->getOrderById($OrderId);
+        public function getOrder($OrderId){
+            $order_detail = $this->orderModel->getSingleOrder($OrderId);
             $data = [
                 "order_detail" => $order_detail,
                 "OrderId" => $OrderId
             ];
+            // echo "<pre>";
+            // var_dump($data);
             $this->view('Orders/getOrder', $data);
         }
 
