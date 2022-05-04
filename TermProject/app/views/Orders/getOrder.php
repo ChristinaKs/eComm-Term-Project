@@ -31,12 +31,20 @@
     <?php
       foreach($data["order_detail"] as $order_detail){
         echo"<tr>";
-        echo"<td>$order_detail->orderId</td>";
-        echo"<td>$order_detail->UPC</td>";
-        echo"<td>$order_detail->ProductName</td>";
-        echo"<td>$order_detail->Quantity</td>";
+        echo"<td>$data->orderId</td>";
+        echo"<td>$data->UPC</td>";
+        echo"<td>$data->ProductName</td>";
+        echo"<td>$data->Quantity</td>";
         echo"</td>";
         echo"</tr>";
+
+        // echo"<tr>";
+        // echo"<td>$order_detail->orderId</td>";
+        // echo"<td>$order_detail->UPC</td>";
+        // echo"<td>$order_detail->ProductName</td>";
+        // echo"<td>$order_detail->Quantity</td>";
+        // echo"</td>";
+        // echo"</tr>";
       }
     ?>
   </table>
