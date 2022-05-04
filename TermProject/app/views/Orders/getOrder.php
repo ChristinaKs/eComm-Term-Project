@@ -20,39 +20,28 @@
   </div>
 </nav>
 
-<h1>Orders</h1>
+<h1>Order Details</h1>
   <table  class="table table-bordered">
     <tr>
       <td>Order ID</td>
-      <td>Client Email</td>
-      <td>Order Date</td>
-      <td>Total Price</td>
-      <td>Order Status</td>
-      <td>View Details</td>
+      <td>Product UPC</td>
+      <td>Product Name</td>
+      <td>Quantity</td>
     </tr>
     <?php
-      $totalPrice = 0;
-      foreach($data["orders"] as $orders){
-        //$totalPrice += $product->ProductPrice*$product->Quantity;
+      foreach($data["order_detail"] as $order_detail){
         echo"<tr>";
-        echo"<td>$orders->OrderId</td>";
-        echo"<td>$orders->ClientEmail</td>";
-        echo"<td>$orders->OrderDate</td>";
-        echo"<td>$orders->OrderTotalPrice</td>";
-        echo"<td>
-          <form action='/TermProject/Orders/updateOrderStatus/$orders->OrderId' method='post'> 
-          <input type='checkbox' name='OrderStatusCB' onChange='this.form.submit()'";
-        if($orders->OrderStatus == 'Shipped'){
-          echo "checked";
-        }
-        echo "> Shipped
-          </form>
-          </td>";
-        echo"<td>
-          <a href='/TermProject/Orders/getOrder/$orders->OrderId'>View Details</a>
-          </td>";
+        echo"<td>$order_detail->orderId</td>";
+        echo"<td>$order_detail->UPC</td>";
+        echo"<td>$order_detail->ProductName</td>";
+        echo"<td>$order_detail->Quantity</td>";
+        echo"</td>";
         echo"</tr>";
       }
     ?>
   </table>
+
+  <form>
+    <button id='Back' name='Back' class='btn btn-primary'> <a href='/TermProject/Orders/getOrders' >Back to Orders </a></button>
+  </form>
 <?php require APPROOT . '/views/includes/footer.php'; ?>

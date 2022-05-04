@@ -20,6 +20,15 @@
             $this->view('Orders/getOrders',$data);
         }
 
+        public function getOrder(){
+            $order_detail = $this->orderModel->getOrderById($OrderId);
+            $data = [
+                "order_detail" => $order_detail,
+                "OrderId" => $OrderId
+            ];
+            $this->view('Orders/getOrder', $data);
+        }
+
         public function updateOrderStatus($OrderId){
             $order = $this->orderModel->getOrderById($OrderId);
             if(!isset($_POST['OrderStatusCB'])){
